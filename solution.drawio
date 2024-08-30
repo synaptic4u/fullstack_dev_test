@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="UN2sgL8hX5gglXzgyNVK" name="Page-1">
-        <mxGraphModel dx="2694" dy="520" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2633" dy="489" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -40,10 +40,10 @@
                     <mxGeometry y="500" width="480" height="370" as="geometry"/>
                 </mxCell>
                 <mxCell id="17" value="Pool" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;align=left;" vertex="1" parent="1">
-                    <mxGeometry x="-1100" y="990" width="1570" height="2300" as="geometry"/>
+                    <mxGeometry x="-1100" y="990" width="1570" height="1280" as="geometry"/>
                 </mxCell>
                 <mxCell id="18" value="User Interface Action" style="swimlane;startSize=20;html=1;" vertex="1" parent="17">
-                    <mxGeometry y="20" width="460" height="2280" as="geometry"/>
+                    <mxGeometry y="20" width="460" height="1260" as="geometry"/>
                 </mxCell>
                 <mxCell id="14" value="START" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fontSize=15;fillColor=#008a00;fontColor=#ffffff;strokeColor=default;fontStyle=1" parent="18" vertex="1">
                     <mxGeometry x="180" y="40" width="50" height="50" as="geometry"/>
@@ -67,31 +67,34 @@
                     <mxGeometry x="175" y="530" width="65" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="19" value="Call / Route" style="swimlane;startSize=20;html=1;" vertex="1" parent="17">
-                    <mxGeometry x="460" y="20" width="390" height="2280" as="geometry"/>
+                    <mxGeometry x="460" y="20" width="390" height="1260" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" value="Route : Init&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Initiates the necessary leg of the JS app.&lt;/li&gt;&lt;li&gt;Parameter required to provide scalability in design so that this call handles various setups.&lt;/li&gt;&lt;/ul&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;strokeColor=default;align=left;" vertex="1" parent="19">
                     <mxGeometry x="30" y="110" width="330" height="210" as="geometry"/>
                 </mxCell>
-                <mxCell id="35" value="Enables submit button in form." style="whiteSpace=wrap;html=1;fontSize=15;rounded=1;" vertex="1" parent="19">
-                    <mxGeometry x="40" y="672" width="280" height="60" as="geometry"/>
+                <mxCell id="35" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Result object&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;JS call:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: center;&quot;&gt;Enables submit button in form.&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;fontSize=15;rounded=1;" vertex="1" parent="19">
+                    <mxGeometry x="40" y="646" width="280" height="112" as="geometry"/>
                 </mxCell>
-                <mxCell id="37" value="Returns error message" style="whiteSpace=wrap;html=1;fontSize=15;rounded=1;" vertex="1" parent="19">
-                    <mxGeometry x="40" y="380" width="280" height="60" as="geometry"/>
+                <mxCell id="37" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Result object&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;ul&gt;&lt;li style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;message: Returns error message&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;fontSize=15;rounded=1;align=left;" vertex="1" parent="19">
+                    <mxGeometry x="40" y="365" width="280" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="57" value="Router::switch with Form ID&lt;br&gt;&lt;ul&gt;&lt;li style=&quot;&quot;&gt;Calls the corresponding controller from registry.&amp;nbsp;&lt;/li&gt;&lt;/ul&gt;" style="whiteSpace=wrap;html=1;fontSize=15;rounded=1;align=left;" vertex="1" parent="19">
-                    <mxGeometry x="40" y="774" width="280" height="110" as="geometry"/>
+                <mxCell id="57" value="Router::switch with Form object&lt;br&gt;&lt;ul&gt;&lt;li&gt;Calls the corresponding controller from registry.&lt;/li&gt;&lt;li&gt;ListParser&amp;nbsp;&lt;/li&gt;&lt;/ul&gt;" style="whiteSpace=wrap;html=1;fontSize=15;rounded=1;align=left;" vertex="1" parent="19">
+                    <mxGeometry x="40" y="800" width="280" height="136" as="geometry"/>
                 </mxCell>
                 <mxCell id="20" value="Controller" style="swimlane;startSize=20;html=1;" vertex="1" parent="17">
-                    <mxGeometry x="850" y="20" width="720" height="2280" as="geometry"/>
+                    <mxGeometry x="850" y="20" width="720" height="1260" as="geometry"/>
                 </mxCell>
                 <mxCell id="34" value="" style="edgeStyle=none;html=1;" edge="1" parent="20" source="29" target="33">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="29" value="Controller: Form Event Capture&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Tries to initialize app - supporting functionality.&lt;br&gt;&lt;/li&gt;&lt;li&gt;Loads the background functionality to attach itself to the page by adding a event listener to all website forms.&lt;/li&gt;&lt;li&gt;Event listener will have a router object which will check the forms ID &amp;amp; determine what to call.&lt;/li&gt;&lt;/ul&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;strokeColor=default;align=left;" vertex="1" parent="20">
+                <mxCell id="29" value="Controller: Form Event Listener&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Tries to initialize app - supporting functionality.&lt;br&gt;&lt;/li&gt;&lt;li&gt;Loads the background functionality to attach itself to the page by adding a event listener to all website forms.&lt;/li&gt;&lt;li&gt;Event listener will have a router object which will check the forms ID &amp;amp; determine what to call.&lt;/li&gt;&lt;/ul&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;strokeColor=default;align=left;" vertex="1" parent="20">
                     <mxGeometry x="40" y="80" width="330" height="290" as="geometry"/>
                 </mxCell>
                 <mxCell id="33" value="App initialize" style="rhombus;whiteSpace=wrap;html=1;fontSize=15;align=center;rounded=1;" vertex="1" parent="20">
                     <mxGeometry x="145" y="520" width="120" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="Controller:: ListParser&lt;br&gt;&lt;ul&gt;&lt;li&gt;Receives form object as parameter&lt;/li&gt;&lt;li&gt;Wrapper controller to parse a comma separated list of values.&lt;/li&gt;&lt;/ul&gt;" style="whiteSpace=wrap;html=1;fontSize=15;rounded=1;align=left;" vertex="1" parent="20">
+                    <mxGeometry x="40" y="800" width="280" height="136" as="geometry"/>
                 </mxCell>
                 <mxCell id="28" value="" style="edgeStyle=none;html=1;" edge="1" parent="17" source="15" target="27">
                     <mxGeometry relative="1" as="geometry"/>
@@ -122,9 +125,18 @@
                 <mxCell id="58" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="17" source="31" target="57">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="205" y="850"/>
+                            <mxPoint x="205" y="888"/>
                         </Array>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="62" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="17" source="57" target="61">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;JS Object: Init&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ field: Type&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ appType: String&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ field: Type&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ method(): Type&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ initialize(appType): Result&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ register(): Result&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ formEventListener(): Bool&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-525" y="2320" width="160" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;JS Object: Result&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ field: Type&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ message: String&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ jsCall: String&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ method(): Type&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-770" y="2320" width="160" height="120" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
