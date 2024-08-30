@@ -34,8 +34,18 @@
 </body>
 
 <script type="text/javascript">
-	document.getElementsByTagName("form")[0].addEventListener('submit', function(event) {
-            // Prevent the default form submission
+    document.addEventListener("submit", function(event) {
+    // Retrieve the current submitted form object
+    const submittedForm = event.target;
+
+    // Check if the event target is a form
+    if (submittedForm && submittedForm.nodeName === "FORM") {
+        // Your custom logic here
+        console.log('Form submitted:', submittedForm);
+
+        // Prevent the form from submitting (if needed)
+        event.preventDefault();
+        // Prevent the default form submission
             event.preventDefault();
 
             // Get the textarea value
@@ -65,7 +75,8 @@
 
             // Display the result
             document.getElementById('result').innerText = `Sorted List: ${sortedResult}`;
-        });;
+    }
+}, true); 
 
 
 </script>
