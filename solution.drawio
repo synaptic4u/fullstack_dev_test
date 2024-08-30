@@ -32,7 +32,7 @@
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="240" y="920"/>
-                            <mxPoint x="-123" y="920"/>
+                            <mxPoint x="-326" y="920"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -49,7 +49,7 @@
                     <mxGeometry x="180" y="40" width="50" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="15" value="Page load&lt;br&gt;&lt;ul&gt;&lt;li&gt;Ppage loads with the HTML form.&lt;/li&gt;&lt;li&gt;Page contains script tag to initiate app.&lt;/li&gt;&lt;/ul&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;strokeColor=default;align=left;" parent="18" vertex="1">
-                    <mxGeometry x="40" y="130" width="330" height="120" as="geometry"/>
+                    <mxGeometry x="40" y="159" width="330" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="16" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=15;strokeColor=default;" parent="18" source="14" target="15" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -78,8 +78,8 @@
                 <mxCell id="37" value="Returns error message" style="whiteSpace=wrap;html=1;fontSize=15;rounded=1;" vertex="1" parent="19">
                     <mxGeometry x="40" y="380" width="280" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="57" value="Enables submit button in form." style="whiteSpace=wrap;html=1;fontSize=15;rounded=1;" vertex="1" parent="19">
-                    <mxGeometry x="40" y="800" width="280" height="60" as="geometry"/>
+                <mxCell id="57" value="Router::switch with Form ID&lt;br&gt;&lt;ul&gt;&lt;li style=&quot;&quot;&gt;Calls the corresponding controller from registry.&amp;nbsp;&lt;/li&gt;&lt;/ul&gt;" style="whiteSpace=wrap;html=1;fontSize=15;rounded=1;align=left;" vertex="1" parent="19">
+                    <mxGeometry x="40" y="774" width="280" height="110" as="geometry"/>
                 </mxCell>
                 <mxCell id="20" value="Controller" style="swimlane;startSize=20;html=1;" vertex="1" parent="17">
                     <mxGeometry x="850" y="20" width="720" height="2280" as="geometry"/>
@@ -87,7 +87,7 @@
                 <mxCell id="34" value="" style="edgeStyle=none;html=1;" edge="1" parent="20" source="29" target="33">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="29" value="Controller: Form Event Capture&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Tries to initialize app - supporting functionality.&lt;br&gt;&lt;/li&gt;&lt;li&gt;Loads the background functionality to attach itself to the page by adding a event listener to all website forms.&lt;/li&gt;&lt;li&gt;Success: submit button is made available.&lt;br&gt;&lt;/li&gt;&lt;li&gt;Error: submit button is disabled and error returned to user.&lt;/li&gt;&lt;/ul&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;strokeColor=default;align=left;" vertex="1" parent="20">
+                <mxCell id="29" value="Controller: Form Event Capture&lt;br&gt;&lt;br&gt;&lt;ul&gt;&lt;li&gt;Tries to initialize app - supporting functionality.&lt;br&gt;&lt;/li&gt;&lt;li&gt;Loads the background functionality to attach itself to the page by adding a event listener to all website forms.&lt;/li&gt;&lt;li&gt;Event listener will have a router object which will check the forms ID &amp;amp; determine what to call.&lt;/li&gt;&lt;/ul&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;strokeColor=default;align=left;" vertex="1" parent="20">
                     <mxGeometry x="40" y="80" width="330" height="290" as="geometry"/>
                 </mxCell>
                 <mxCell id="33" value="App initialize" style="rhombus;whiteSpace=wrap;html=1;fontSize=15;align=center;rounded=1;" vertex="1" parent="20">
@@ -117,6 +117,13 @@
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="650" y="482.5" as="sourcePoint"/>
                         <mxPoint x="400" y="640" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="58" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="17" source="31" target="57">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="205" y="850"/>
+                        </Array>
                     </mxGeometry>
                 </mxCell>
             </root>
