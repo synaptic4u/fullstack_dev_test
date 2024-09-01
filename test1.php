@@ -45,8 +45,6 @@
 
         // Prevent the form from submitting (if needed)
         event.preventDefault();
-        // Prevent the default form submission
-            event.preventDefault();
 
             // Get the textarea value
             const textArea = document.getElementsByName('to_sort')[0].value;
