@@ -9,7 +9,7 @@ const App = {
     'init':  function(appType){
         this.appType = appType;
 
-        // Loads the routes Controller into the app already initiated.
+        // Loads the routes Controller into the app & initiates.
         try{
             let app = Router;
             app.getRouter(this.appType);

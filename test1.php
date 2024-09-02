@@ -19,31 +19,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <!-- META -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+     <!-- TITLE -->
 	<title>Test1</title>
-    <style>
 
-.hidden {
-    display: none;
-}
-
-.visible {
-    display: block;
-}
-.message{
-
-    font-weight: bold;
-    margin: 1rem 1rem 1rem 1rem;
-}
-.error{
-    color: red;
-}
-.info{
-    color: blue;
-}
-.success{
-    color: green;
-}
-    </style>
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 	<h1>Sort List</h1>
@@ -59,12 +45,11 @@
 </body>
 
 
+<!-- MAIN JAVASCRIPT -->
 <script type="module" >
     import { App } from "./js/App/App.js";
     
     App.init('test1');
-
-
 </script>
 
 </html>

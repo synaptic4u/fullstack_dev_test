@@ -1,5 +1,6 @@
 import { FormEventListener } from "../FormEventListener/FormEventListener.js";
 import { Response } from "../Respone/Response.js";
+import { Utils } from "../Utils/Utils.js";
 
 /**
  * Object Router
@@ -19,15 +20,8 @@ const Router = {
         
             return this.routes[route].attach();
         }else{
-                    
-            // Find all input elements with type="submit"
-            const submitButtons = document.querySelectorAll('input[type="submit"]');
-
-            // Loop through each button and disables them.
-            submitButtons.forEach(button => {
-                button.disabled = true;
-            });
-
+                  
+            this.response.JSCall = Utils.submitBtnDisable();
             this.response.error = 1;
             this.response.message = '<span class="error">Route not found.<br>Please contact support for correct configuration.</span>';
             
