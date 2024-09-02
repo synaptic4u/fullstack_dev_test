@@ -1,23 +1,24 @@
 import { Router } from "../Router/Router.js";
 
 /**
- * Object Init
+ * Object App
  * Initiates the app by dynamically attaching the route to the Router.
  */
-const Init = {
+const App = {
     'appType': null,
     'init':  function(appType){
         this.appType = appType;
 
         // Loads the routes Controller into the app already initiated.
         try{
-            let app = Router.getRouter(this.appType);
+            let app = Router;
+            app.getRouter(this.appType);
 
-            if(app == 1){
+            if(app.response.error === 1){
 
-                console.log("Route not found.");
+                app.response.initMessage();
 
-                
+                app = null;
             }
         }catch{}
         
@@ -26,5 +27,5 @@ const Init = {
 };
 
 export {
-    Init
+    App
 }

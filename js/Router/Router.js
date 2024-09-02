@@ -1,4 +1,5 @@
 import { FormEventListener } from "../FormEventListener/FormEventListener.js";
+import { Response } from "../Respone/Response.js";
 
 /**
  * Object Router
@@ -6,6 +7,8 @@ import { FormEventListener } from "../FormEventListener/FormEventListener.js";
  * Returns the instantiated
  */
 const Router = {
+    'request': null,
+    'response': Response,
     'routes': {
         'test1': FormEventListener,
         'test4': FormEventListener,
@@ -25,7 +28,9 @@ const Router = {
                 button.disabled = true;
             });
 
-            return 1;
+            this.response.error = 1;
+            this.response.message = '<span class="error">Route not found.<br>Please contact support for correct configuration.</span>';
+            
         }
 
     }

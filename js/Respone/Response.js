@@ -23,12 +23,6 @@ const Response = {
 
             messageDiv.innerHTML = "";
         }
-        
-
-
-
-
-
     },
     'initJSCall': function (){},
     'initResult': function (){},
