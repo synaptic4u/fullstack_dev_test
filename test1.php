@@ -37,7 +37,7 @@
 <script type="module" >
     import { Init } from "./js/Init/Init.js";
     
-    Init.init('question1');
+    Init.init('test2');
 
 
 </script>

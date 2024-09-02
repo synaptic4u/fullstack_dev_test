@@ -1,13 +1,16 @@
 import { Router } from "../Router/Router.js";
 
+/**
+ * Object Init
+ * Initiates the app by dynamically attaching the route to the Router.
+ */
 const Init = {
     'appType': null,
     'init':  function(appType){
         this.appType = appType;
 
-        console.log('init');
-        let router = Router;
-        let app = router.routes.question1.attach();
+        // Loads the routes Controller into the app already initiated.
+        Router.getRouter(this.appType);
     },
 
 };
