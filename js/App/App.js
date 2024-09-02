@@ -14,14 +14,20 @@ const App = {
             let app = Router;
             app.getRouter(this.appType);
 
-            if(app.response.error === 1){
+            (app.response.message == null) ? '' : app.response.initMessage();
 
-                app.response.initMessage();
+            (app.response.result == null) ? '' : app.response.initResult();
+
+            (app.response.JSCall == null) ? '' : app.response.initJSCall();
+
+            if(app.response.error === 1){
 
                 app = null;
             }
-        }catch{}
-        
+        }catch(error){
+
+            console.error('An error occurred:', error.message);
+        }
     },
 
 };
