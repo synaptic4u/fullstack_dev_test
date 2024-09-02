@@ -24,12 +24,7 @@ const App = {
             router.response.result = router.getRouter(this.appType);
             console.log(router.response.result);
 
-            // Null is the default value of the Response objects properties.
-            (router.response.message == null) ? '' : router.response.initMessage();
-
-            (router.response.result == null) ? '' : router.response.initResult();
-
-            (router.response.JSCall == null) ? '' : router.response.initJSCall();
+            this.loadResponse(router.response);
 
             if(router.response.error === 1){
 
@@ -54,12 +49,7 @@ const App = {
             router.loadRouter(this.appType);
             console.log(router.response.result);
 
-            // Null is the default value of the Response objects properties.
-            (router.response.message == null) ? '' : router.response.initMessage();
-
-            (router.response.result == null) ? '' : router.response.initResult();
-
-            (router.response.JSCall == null) ? '' : router.response.initJSCall();
+            this.loadResponse(router.response);
 
             if(router.response.error === 1){
 
@@ -70,6 +60,15 @@ const App = {
             console.error('An error occurred:', error.message);
         }
     },
+    'loadResponse': function (response){
+
+            // Null is the default value of the Response objects properties.
+            (response.message == null) ? '' : response.initMessage();
+
+            (response.result == null) ? '' : response.initResult();
+
+            (response.JSCall == null) ? '' : response.initJSCall();
+    }
 
 };
 

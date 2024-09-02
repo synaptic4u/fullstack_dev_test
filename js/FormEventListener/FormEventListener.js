@@ -19,7 +19,7 @@ const FormEventListener = {
                 // let app = App.load(submittedForm.id, submittedForm);
                 // console.log(app)
                             
-                // App.init(submittedForm.id, submittedForm);
+                // App.load(submittedForm.id, submittedForm);
         
                     // Get the textarea value
                     const textArea = submittedForm.elements.to_sort.value;

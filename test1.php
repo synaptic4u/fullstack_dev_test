@@ -49,7 +49,7 @@
 <script type="module" >
     import { App } from "./js/App/App.js";
 
-    App.init('test1');
+    App.init('test11');
 </script>
 
 </html>

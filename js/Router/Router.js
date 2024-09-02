@@ -21,8 +21,7 @@ const Router = {
         }else{
             
             this.response.JSCall = [
-                'import { Utils } from "./js/Utils/Utils.js";' +
-                'Utils.submitBtnDisable();'
+                'import { Utils } from "./js/Utils/Utils.js";' + 'Utils.submitBtnDisable();'
             ];
             this.response.error = 1;
             this.response.message = '<span class="error">JS Application\'s Route not found.<br>Please contact support for correct configuration.</span>';
