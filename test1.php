@@ -48,7 +48,7 @@
 <!-- MAIN JAVASCRIPT -->
 <script type="module" >
     import { App } from "./js/App/App.js";
-    
+
     App.init('test1');
 </script>
 

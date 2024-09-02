@@ -26,6 +26,18 @@ const Response = {
     },
     'initJSCall': function (){
         
+        for (const key in this.JSCall) {
+            
+            let dynamic = document.createElement("script");
+            dynamic.setAttribute("id", "dynamic");
+            dynamic.setAttribute("type", "module");
+
+            let calls = document.createTextNode((this.JSCall[key]).replace("'", ""));
+            dynamic.appendChild(calls);
+            document.body.appendChild(dynamic);
+            
+            document.getElementById('dynamic').remove();
+        }
     },
     'initResult': function (){
         document.getElementById('result').innerHTML = this.result;

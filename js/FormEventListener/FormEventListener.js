@@ -1,4 +1,4 @@
-
+import { App } from "../App/App.js";
 
 const FormEventListener = {
     'attach': function(){
@@ -15,9 +15,14 @@ const FormEventListener = {
         
                 // Prevent the form from submitting (if needed)
                 event.preventDefault();
+
+                // let app = App.load(submittedForm.id, submittedForm);
+                // console.log(app)
+                            
+                // App.init(submittedForm.id, submittedForm);
         
                     // Get the textarea value
-                    const textArea = submittedForm.items.to_sort.value;
+                    const textArea = submittedForm.elements.to_sort.value;
         
                     // Validate that the field is not empty
                     if (textArea.trim() === '') {
