@@ -20,7 +20,7 @@ const Router = {
         
             return this.routes[route].attach();
         }else{
-                  
+            
             this.response.JSCall = Utils.submitBtnDisable();
             this.response.error = 1;
             this.response.message = '<span class="error">Route not found.<br>Please contact support for correct configuration.</span>';

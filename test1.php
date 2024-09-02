@@ -34,7 +34,7 @@
 <body>
 	<h1>Sort List</h1>
     <div id="message" class="message hidden"></div>
-	<form method="post">
+	<form method="post" id="list_parser">
 		<input type="hidden" name="action" value="sort" />
 		<label for="to_sort">Please enter the words/phrases to be sorted separated by commas:</label><br/>
 		<textarea name="to_sort" style="width: 400px; height: 150px;"></textarea><br/>

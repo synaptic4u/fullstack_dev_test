@@ -24,8 +24,12 @@ const Response = {
             messageDiv.innerHTML = "";
         }
     },
-    'initJSCall': function (){},
-    'initResult': function (){},
+    'initJSCall': function (){
+        
+    },
+    'initResult': function (){
+        document.getElementById('result').innerHTML = this.result;
+    },
 };
 
 export {

@@ -9,13 +9,15 @@ const FormEventListener = {
             // Check if the event target is a form
             if (submittedForm && submittedForm.nodeName === "FORM") {
                 // Your custom logic here
+                console.log('Form id:', submittedForm.id);
                 console.log('Form submitted:', submittedForm);
+                
         
                 // Prevent the form from submitting (if needed)
                 event.preventDefault();
         
                     // Get the textarea value
-                    const textArea = document.getElementsByName('to_sort')[0].value;
+                    const textArea = submittedForm.items.to_sort.value;
         
                     // Validate that the field is not empty
                     if (textArea.trim() === '') {
