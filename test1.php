@@ -49,6 +49,7 @@
 <script type="module" >
     import { App } from "./js/App/App.js";
 
+    // Change param value for different functionality
     App.init('test1');
 </script>
 
