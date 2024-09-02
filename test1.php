@@ -20,9 +20,20 @@
 <html>
 <head>
 	<title>Test1</title>
+    <style>
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+    </style>
 </head>
 <body>
 	<h1>Sort List</h1>
+    <div id="message" class="hidden"></div>
 	<form method="post">
 		<input type="hidden" name="action" value="sort" />
 		<label for="to_sort">Please enter the words/phrases to be sorted separated by commas:</label><br/>
@@ -37,7 +48,7 @@
 <script type="module" >
     import { Init } from "./js/Init/Init.js";
     
-    Init.init('test2');
+    Init.init('test1');
 
 
 </script>

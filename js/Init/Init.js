@@ -10,7 +10,17 @@ const Init = {
         this.appType = appType;
 
         // Loads the routes Controller into the app already initiated.
-        Router.getRouter(this.appType);
+        try{
+            let app = Router.getRouter(this.appType);
+
+            if(app == 1){
+
+                console.log("Route not found.");
+
+                
+            }
+        }catch{}
+        
     },
 
 };
