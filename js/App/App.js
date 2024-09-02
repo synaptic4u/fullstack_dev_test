@@ -39,15 +39,15 @@ const App = {
      * Tries to load the Router's controller, runs the response methods if set.
      * @param {String} appType apps Router's route.
      */
-    'load':  function(appType, request){
+    'load':  function(appType, requestBody){
+        console.log(appType, requestBody);
         this.appType = appType;
 
         // Loads the routes Controller into the app & initiates.
         try{
             let router = Router;
 
-            router.loadRouter(this.appType);
-            console.log(router.response.result);
+            let rezz = router.loadRouter(this.appType, requestBody);
 
             this.loadResponse(router.response);
 
