@@ -37,7 +37,9 @@ const App = {
     },
     /**  Method: load
      * Tries to load the Router's controller, runs the response methods if set.
+     * Called from FormEventListener & Top level controllers, event listeners pass the Request through to the Apps router again.
      * @param {String} appType apps Router's route.
+     * @param {Form} requestBody Form is passed through to the router as param.
      */
     'load':  function(appType, requestBody){
         console.log(appType, requestBody);
@@ -49,6 +51,7 @@ const App = {
 
             let rezz = router.loadRouter(this.appType, requestBody);
             console.log(rezz);
+            console.log(router.response);
 
             this.loadResponse(router.response);
 
@@ -61,6 +64,10 @@ const App = {
             console.error('An error occurred:', error.message);
         }
     },
+    /**
+     * App -> loadResponse Updates html UI with app's response.
+     * @param {Response} response 
+     */
     'loadResponse': function (response){
 
             // Null is the default value of the Response objects properties.

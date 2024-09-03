@@ -15,6 +15,11 @@ const Router = {
         'test4': FormEventListener,
         'list_parser': ListParser,
     },
+    /**
+     * Router -> getRouter Attaches the Top Level Controller to the App. Top Level Controllers are used to run & catch their own routing.
+     * @param {String} route 
+     * @returns Initiated TL Controller attached to UI - HTML Page
+     */
     'getRouter': function(route){
 
         if(route in this.routes){
@@ -31,6 +36,12 @@ const Router = {
         }
 
     },
+    /**
+     * Router -> loadRouter Secondary level routing functionality to include a request body which will be used in processing the request. Form submission.
+     * @param {String} route 
+     * @param {Object} request Body of the request. Ex. Form object
+     * @returns 
+     */
     'loadRouter': function(route, request){
         console.log(route, request);
 
