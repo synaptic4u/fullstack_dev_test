@@ -38,7 +38,9 @@ const ListParser = {
         this.response.result = '<span class="info">Sorted List: ' + sortedResult + '</span>';
     },
     'attach' : function(request){
+
         this.parseList(request);
+        
         return this.response;
     }
 }

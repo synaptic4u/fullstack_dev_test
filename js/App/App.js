@@ -4,6 +4,8 @@ import { Router } from "../Router/Router.js";
 /**
  * Object App
  * Initiates the app by dynamically attaching the route to the Router.
+ * App -> init only runs Top Level Controllers which will have their own sub-routing functionality.
+ * App -> load only runs Second Level Controllers - instead of method overload, SL Controllers always pass variable requiring additional logic. 
  */
 const App = {
     /** Property: appType
