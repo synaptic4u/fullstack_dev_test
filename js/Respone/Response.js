@@ -2,7 +2,10 @@
 /**
  * Object Response
  * Properties default with null to enable easy checking in other object.
- * Error defaults to 0 to represent success. 1 for failure.
+ * Property error defaults to 0 to represent success. 1 for failure. 
+ * Property message rewrites html div tag with message ID.
+ * Property result rewrites html div tag with result ID.
+ * Property JSCALL creates dynamic module calls. May not work with standard JS calls.
  */
 const Response = {
     'error': 0,
