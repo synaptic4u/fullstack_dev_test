@@ -15,8 +15,7 @@ const Router = {
         'test4': FormEventListener,
         'list_parser': ListParser,
     },
-    /**
-     * Router -> getRouter Attaches the Top Level Controller to the App. Top Level Controllers are used to run & catch their own routing.
+    /** Router -> getRouter Attaches the Top Level Controller to the App. Top Level Controllers are used to run & catch their own routing.
      * @param {String} route 
      * @returns Initiated TL Controller attached to UI - HTML Page
      */

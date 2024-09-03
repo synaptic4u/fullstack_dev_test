@@ -3,6 +3,7 @@ import { App } from "../App/App.js";
 const FormEventListener = {
     'attach': function(){
         document.addEventListener("submit", function(event) {
+
             // Retrieve the current submitted form object
             let submittedForm = event.target;
         
@@ -11,13 +12,11 @@ const FormEventListener = {
                 // Your custom logic here
                 console.log('Form id:', submittedForm.id);
                 console.log('Form submitted:', submittedForm);
-                
-        
+                        
                 // Prevent the form from submitting (if needed)
                 event.preventDefault();
 
-                let app = App.load(submittedForm.id, submittedForm);
-                console.log(app);
+                App.load(submittedForm.id, submittedForm);
             }
         }, true); 
     },

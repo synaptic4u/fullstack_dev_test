@@ -21,8 +21,7 @@ const App = {
         try{
             let router = Router;
 
-            router.response.result = router.getRouter(this.appType);
-            console.log(router.response.result);
+            router.getRouter(this.appType);
 
             this.loadResponse(router.response);
 
@@ -49,8 +48,8 @@ const App = {
         try{
             let router = Router;
 
-            let rezz = router.loadRouter(this.appType, requestBody);
-            console.log(rezz);
+            router.loadRouter(this.appType, requestBody);
+            
             console.log(router.response);
 
             this.loadResponse(router.response);
