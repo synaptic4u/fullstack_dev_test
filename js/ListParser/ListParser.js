@@ -10,12 +10,15 @@ const ListParser = {
     */
     'parseList': function(submittedForm){
         // Get the textarea value
-        const textArea = submittedForm.elements.to_sort.value;
+        let textArea = submittedForm.elements.to_sort.value;
         
         // Validate that the field is not empty
         if (textArea.trim() === '') {
-            alert('The textarea cannot be empty!');
-            return;
+            this.response.error = 1;
+
+            this.response.message = '<span class="error">The textarea cannot be empty!</span>';
+            
+            return this.response;
         }
 
         // Split the string into an array by commas
@@ -32,16 +35,16 @@ const ListParser = {
         items.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
 
         // Join the sorted array back into a string
-        const sortedResult = items.join(', ');
+        let sortedResult = items.join(', ');
 
         // Display the result
         this.response.result = '<span class="info">Sorted List: ' + sortedResult + '</span>';
+
+        return this.response;
     },
     'attach' : function(request){
 
-        this.parseList(request);
-        
-        return this.response;
+        return this.parseList(request);
     }
 }
 

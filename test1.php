@@ -36,10 +36,11 @@
     <div id="message" class="message hidden"></div>
 	<form method="post" id="list_parser">
 		<input type="hidden" name="action" value="sort" />
-		<label for="to_sort">Please enter the words/phrases to be sorted separated by commas:</label><br/>
+
+        <label for="to_sort">Please enter the words/phrases to be sorted separated by commas:</label><br/>
 		<textarea name="to_sort" style="width: 400px; height: 150px;"></textarea><br/>
-		<div class="hidden warning">The textarea cannot be empty!</div>
-		<input type="submit" value="Sort" />
+
+        <input type="submit" value="Sort" />
 	</form>
 	<div id="result"></div>
 </body>
