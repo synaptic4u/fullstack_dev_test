@@ -19,7 +19,7 @@ const FormEventListener = {
                 let app = App.load(submittedForm.id, submittedForm);
                 console.log(app)
                             
-                App.load(submittedForm.id, submittedForm);       
+                App.load(submittedForm.id, submittedForm);
             }
         }, true); 
     },

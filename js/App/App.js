@@ -48,6 +48,7 @@ const App = {
             let router = Router;
 
             let rezz = router.loadRouter(this.appType, requestBody);
+            console.log(rezz);
 
             this.loadResponse(router.response);
 
