@@ -1,7 +1,13 @@
 import { Response } from "../Respone/Response.js"
 
+/**
+ * Object ListParser. Second Level Controller. Responsible for logic to parse comma delimeted strings from forms.
+ */
 const ListParser = {
     'response': Response,
+    /** 
+    *   ListParser -> parseList. Parses the form & then the list. 
+    */
     'parseList': function(submittedForm){
         // Get the textarea value
         const textArea = submittedForm.elements.to_sort.value;

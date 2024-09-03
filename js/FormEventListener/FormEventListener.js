@@ -17,9 +17,7 @@ const FormEventListener = {
                 event.preventDefault();
 
                 let app = App.load(submittedForm.id, submittedForm);
-                console.log(app)
-                            
-                App.load(submittedForm.id, submittedForm);
+                console.log(app);
             }
         }, true); 
     },
