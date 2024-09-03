@@ -45,6 +45,7 @@ const App = {
             let router = Router;
 
             router.loadRouter(this.appType, requestBody);
+            console.log(router);
             
             this.loadResponse(router.response);
         }catch(error){

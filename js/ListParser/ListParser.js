@@ -35,11 +35,11 @@ const ListParser = {
         const sortedResult = items.join(', ');
 
         // Display the result
-        document.getElementById('result').innerText = `Sorted List: ${sortedResult}`;
+        this.response.result = '<span class="info">Sorted List: ' + sortedResult + '</span>';
     },
     'attach' : function(request){
         this.parseList(request);
-        return Response;
+        return this.response;
     }
 }
 

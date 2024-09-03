@@ -30,8 +30,7 @@ const Router = {
                 'import { Utils } from "./js/Utils/Utils.js";' + 'Utils.submitBtnDisable();'
             ];
             this.response.error = 1;
-            this.response.message = '<span class="error">JS Application\'s Route not found.<br>Please contact support for correct configuration.</span>';
-            
+            this.response.message = '<span class="error">JS Application\'s Route not found.<br>Please contact support for correct configuration.</span>';            
         }
 
     },
@@ -53,8 +52,7 @@ const Router = {
                 'import { Utils } from "./js/Utils/Utils.js";' + 'Utils.submitBtnDisable();'
             ];
             this.response.error = 1;
-            this.response.message = '<span class="error">JS Application\'s Route not found.<br>Please contact support for correct configuration.</span>';
-            
+            this.response.message = '<span class="error">JS Application\'s Route not found.<br>Please contact support for correct configuration.</span>';            
         }
 
     }
