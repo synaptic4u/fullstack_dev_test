@@ -1,7 +1,11 @@
 
 
 const Search = {
-    'attach': function(){}
+    'search': function(){},
+    'attach' : function(request){
+
+        return this.search(request);
+    }
 };
 
 export {
