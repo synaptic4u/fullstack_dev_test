@@ -15,23 +15,21 @@ const App = {
      * @param {String} appType  apps Router's route.
      */
     'init': function(appType){
+
         this.appType = appType;
 
-        // Loads the routes Controller into the app & initiates.
+        // Loads the routes Controller into the router & initiates.
         try{
             let router = Router;
 
             router.getRouter(this.appType);
 
             this.loadResponse(router.response);
-
-            if(router.response.error === 1){
-
-                router = null;
-            }
         }catch(error){
 
             console.error('An error occurred:', error.message);
+        }finally{
+            router = null;
         }
     },
     /**  Method: load
@@ -41,26 +39,21 @@ const App = {
      * @param {Form} requestBody Form is passed through to the router as param.
      */
     'load': function(appType, requestBody){
-        console.log(appType, requestBody);
+
         this.appType = appType;
 
-        // Loads the routes Controller into the app & initiates.
+        // Loads the routes Controller into the router & initiates.
         try{
             let router = Router;
 
             router.loadRouter(this.appType, requestBody);
             
-            console.log(router.response);
-
             this.loadResponse(router.response);
-
-            if(router.response.error === 1){
-
-                router = null;
-            }
         }catch(error){
 
             console.error('An error occurred:', error.message);
+        }finally{
+            router = null;
         }
     },
     /**
