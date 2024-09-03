@@ -28,8 +28,6 @@ const App = {
         }catch(error){
 
             console.error('An error occurred:', error.message);
-        }finally{
-            router = null;
         }
     },
     /**  Method: load
@@ -52,8 +50,6 @@ const App = {
         }catch(error){
 
             console.error('An error occurred:', error.message);
-        }finally{
-            router = null;
         }
     },
     /**
