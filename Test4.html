@@ -18,20 +18,24 @@ Please make sure your code runs as effectively as it can.
 <body>
 	<h1>Search Customers</h1>
     
-    <input type="text" id="searchBox" placeholder="Search by name">
+	<form method="post" id="search_customers">
+        <input type="text" id="searchBox" placeholder="Search by name">
     
-    <select id="ageDropdown">
-        <option value="">Select Age Group</option>
-        <option value="18-19">18-19</option>
-        <option value="20-29">20-29</option>
-        <option value="30-39">30-39</option>
-        <option value="40-49">40-49</option>
-        <option value="50-59">50-59</option>
-        <option value="60-69">60-69</option>
-        <option value="70-79">70-79</option>
-        <option value="80-89">80-89</option>
-        <option value="90-99">90-99</option>
-    </select>
+        <select id="ageDropdown">
+            <option value="">Search by Age Group</option>
+            <option value="18-19">18-19</option>
+            <option value="20-29">20-29</option>
+            <option value="30-39">30-39</option>
+            <option value="40-49">40-49</option>
+            <option value="50-59">50-59</option>
+            <option value="60-69">60-69</option>
+            <option value="70-79">70-79</option>
+            <option value="80-89">80-89</option>
+            <option value="90-99">90-99</option>
+        </select>
+        
+        <input type="submit" value="Search" />
+    </form>
     
     <div id="result" class="data-container"></div>
 

@@ -1,6 +1,7 @@
 import { FormEventListener } from "../FormEventListener/FormEventListener.js";
 import { ListParser } from "../ListParser/ListParser.js";
-import { Response } from "../Respone/Response.js";
+import { Response } from "../Response/Response.js";
+import { Search } from "../Search/Search.js";
 
 /**
  * Object Router
@@ -14,6 +15,7 @@ const Router = {
         'test1': FormEventListener,
         'test4': FormEventListener,
         'list_parser': ListParser,
+        'search_customers': Search,
     },
     /** Router -> getRouter Attaches the Top Level Controller to the App. Top Level Controllers are used to run & catch their own routing.
      * @param {String} route 
