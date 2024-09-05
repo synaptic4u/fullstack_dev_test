@@ -2,7 +2,7 @@ import { Response } from "../Response/Response.js";
 
 const FormParser = {
     'error': 0,
-    'response': {},
+    'response': Response,
     'fields': {},
     'parse': function (form){
 

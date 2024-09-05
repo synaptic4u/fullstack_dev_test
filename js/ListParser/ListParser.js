@@ -1,17 +1,26 @@
+import { FormParser } from "../FormParser/FormParser.js";
 import { Response } from "../Response/Response.js"
+import { Sanitize } from "../Sanitize/Sanitize.js";
+import { Validate } from "../Validate/Validate.js";
 
 /**
  * Object ListParser. Second Level Controller. Responsible for logic to parse comma delimeted strings from forms.
  */
 const ListParser = {
     'response': Response,
+    'validate': Validate,
+    'sanitize': Sanitize,
     /** 
     *   ListParser -> parseList. Parses the form & then the list. 
     */
     'parseList': function(submittedForm){
-        // Get the textarea value
-        let textArea = submittedForm.elements.to_sort.value;
         
+        // Get the form fields value
+        let formFields = FormParser.parse(submittedForm);
+        
+        if(formFields){
+
+        }
         // Validate that the field is not empty
         if (textArea.trim() === '') {
             this.response.error = 1;
