@@ -1,4 +1,4 @@
-import { Response } from "../Respone/Response.js"
+import { Response } from "../Response/Response.js"
 
 /**
  * Object ListParser. Second Level Controller. Responsible for logic to parse comma delimeted strings from forms.
