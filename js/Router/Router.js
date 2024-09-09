@@ -1,6 +1,7 @@
 import { FormEventListener } from "../FormEventListener/FormEventListener.js";
 import { ListParser } from "../ListParser/ListParser.js";
 import { Response } from "../Response/Response.js";
+import { Sanitize } from "../Sanitize/Sanitize.js";
 import { Search } from "../Search/Search.js";
 
 /**
@@ -9,7 +10,7 @@ import { Search } from "../Search/Search.js";
  * Returns the instantiated
  */
 const Router = {
-    'request': null,
+    'resource': null,
     'response': Response,
     'routes': {
         'test1': FormEventListener,
@@ -21,11 +22,13 @@ const Router = {
      * @param {String} route 
      * @returns Initiated TL Controller attached to UI - HTML Page
      */
-    'getRouter': function(route){
+    'getRouter': function(route, resource){
 
         if(route in this.routes){
-        
+            this.resource = resource;
+
             return this.routes[route].attach();
+            
         }else{
             
             this.response.JSCall = [
@@ -44,9 +47,12 @@ const Router = {
      */
     'loadRouter': function(route, request){
         console.log(route, request);
+        console.log("Resource: " + this.resource);
 
         if(route in this.routes){
-        
+            
+            this.loadResource;
+
             return this.routes[route].attach(request);
         }else{
             
@@ -57,6 +63,30 @@ const Router = {
             this.response.message = '<span class="error">JS Application\'s Route not found.<br>Please contact support for correct configuration.</span>';            
         }
 
+    },
+    'loadResource': function(){
+        if(this.resource){
+
+            let extension = this.resource.split('.').pop().toLowerCase();
+
+            switch (true) {
+                case (extension === 'json'):
+                    
+                    break;
+                case (extension === 'js'):
+                    
+                    break;
+            
+                default:
+                    this.response.JSCall = [
+                        'import { Utils } from "./js/Utils/Utils.js";' + 'Utils.submitBtnDisable();'
+                    ];
+                    this.response.error = 1;
+                    this.response.message = '<span class="error">JS Application\'s external file resources not found.<br>Please contact support for correct configuration.</span>';            
+        
+                    break;
+            }
+        }
     }
 };
 

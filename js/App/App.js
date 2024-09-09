@@ -1,6 +1,5 @@
 import { Router } from "../Router/Router.js";
 
-
 /**
  * Object App
  * Initiates the app by dynamically attaching the route to the Router.
@@ -12,19 +11,25 @@ const App = {
      * This is the route passed through to the Router object to load the correct controller
      */
     'appType': null,
-    /** Method: init
-     * Tries to load the Router's controller, runs the response methods if set.
-     * @param {String} appType  apps Router's route.
+    /** Property: resourceURL
+     * This is the external resource URL passed through to the app.
      */
-    'init': function(appType){
+    'resourceURL': null,
+    /** Method: init
+     * Tries to load the Router's controller, runs the response methods if set. Passes a resourceURL param.
+     * @param {String} appType  apps Router's route.
+     * @param {String} resourceURL  resource URL for external resource JS object or JSON files.
+     */
+    'init': function(appType, resourceURL = null){
 
         this.appType = appType;
+        this.resourceURL = resourceURL;
 
         // Loads the routes Controller into the router & initiates.
         try{
             let router = Router;
 
-            router.getRouter(this.appType);
+            router.getRouter(this.appType, this.resourceURL);
 
             this.loadResponse(router.response);
         }catch(error){

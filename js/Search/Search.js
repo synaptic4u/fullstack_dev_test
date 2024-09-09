@@ -6,7 +6,7 @@ import { Validate } from "../Validate/Validate.js";
 
 const Search = {
     'response': Response,
-    'customer': Customers,
+    'data_set': Customers,
     'search': function(request){
 
         this.response = FormParser.parse(request);
@@ -20,6 +20,8 @@ const Search = {
             console.log(this.response.result.search_name)
             
         }
+
+        return this.response;
     },
     'attach' : function(request){
 

@@ -25,8 +25,8 @@ Please make sure your code runs as effectively as it can.
     <!-- STYLESHEET -->
     <link rel="stylesheet" href="./css/style.css">
     
-	<!-- DATA SOURCE JS -->
-    <script type="text/javascript" src="data.js" ></script>
+	<!-- DATA SOURCE JS -> changed to laod through the app -->
+    <!-- <script type="text/javascript" src="data.js" ></script> -->
 </head>
 <body>
 	<h1>Search Customers</h1>
@@ -71,7 +71,7 @@ Please make sure your code runs as effectively as it can.
         import { App } from "./js/App/App.js";
 
         // Change param value for different functionality
-        App.init('test4');
+        App.init('test4', 'data.js');
     </script>
 
     <script type="text/javascript">
