@@ -8,10 +8,11 @@ const Search = {
     'search': function(request){
 
         this.response = FormParser.parse(request);
+        
+            console.log('customers' + customers)
 
         if(Validate.checkStringEmpty(this.response.result.search_age)){
             console.log(this.response.result.search_age)
-            
         }
 
         if(Validate.checkStringEmpty(this.response.result.search_name)){
