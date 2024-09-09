@@ -19,12 +19,9 @@ const ListParser = {
         this.response = FormParser.parse(submittedForm);
         console.log(this.response);
         
-        // Validate that the field is not empty
-        if(this.validate.checkEmpty(this.response.result.to_sort)){
-            console.log('this.response.result '+ this.response.result.to_sort);
+        // Should return false if validation fails for a empty/null/bad value that we cannot process.
+        if(!this.validate.checkStringEmpty(this.response.result.to_sort)){
 
-            
-        }else{
             // FormParser returns empty to_sort field set in this.response.result
             this.response.error = 1;
             this.response.result = null;
@@ -34,16 +31,9 @@ const ListParser = {
             return this.response;
         }
         
-
+        // Parses Validation
         // Split the string into an array by commas
-        let items = this.response.result.to_sort.split(',');
-
-        // Clean up the array: remove extra spaces and filter out empty items
-        items = items.map(
-            item => item.trim()
-        ).filter(
-            item => item !== ''
-        );
+        let items = this.sanitize.csvList(this.response.result.to_sort);
 
         // Sort the array alphabetically
         items.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
@@ -51,7 +41,7 @@ const ListParser = {
         // Join the sorted array back into a string
         let sortedResult = items.join(', ');
 
-        // Display the result
+        // Build the result
         this.response.result = '<span class="info">Sorted List: ' + (sortedResult) ? sortedResult : 'No results to display' + '</span>';
 
         return this.response;
