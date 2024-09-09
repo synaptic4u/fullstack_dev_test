@@ -1,14 +1,17 @@
 
 const Validate = {
-    'int': function (intVal){
+    'checkInt': function (intVal){
 
         return intVal;
     },
-    'string': function(stringVal){
+    'checkString': function(stringVal){
         return stringVal;
     },
-    'array': function(arrayVal){
+    'checkArray': function(arrayVal){
         return arrayVal;
+    },
+    'checkEmpty': function(value){
+        return value;
     }
 };
 

@@ -19,22 +19,17 @@ const ListParser = {
         this.response = FormParser.parse(submittedForm);
         console.log(this.response);
         
-        if(this.response.result.to_sort){
+        // Validate that the field is not empty
+        if(this.validate.checkEmpty(this.response.result.to_sort)){
             console.log('this.response.result '+ this.response.result.to_sort);
 
-            // Validate that the field is not empty
-            if (this.response.result.to_sort.trim() === '') {
-                this.response.error = 1;
-
-                this.response.message = '<span class="error">The textarea cannot be empty!</span>';
-                
-                return this.response;
-            }
+            
         }else{
             // FormParser returns empty to_sort field set in this.response.result
             this.response.error = 1;
+            this.response.result = null;
 
-            this.response.message = '<span class="error">Form submission error. Please contact support.</span>';
+            this.response.message = '<span class="error">The textarea cannot be empty!<br>Please provide a comma seperated list of values.</span>';
             
             return this.response;
         }
@@ -57,7 +52,7 @@ const ListParser = {
         let sortedResult = items.join(', ');
 
         // Display the result
-        this.response.result = '<span class="info">Sorted List: ' + sortedResult + '</span>';
+        this.response.result = '<span class="info">Sorted List: ' + (sortedResult) ? sortedResult : 'No results to display' + '</span>';
 
         return this.response;
     },
