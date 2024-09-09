@@ -8,8 +8,6 @@ import { Validate } from "../Validate/Validate.js";
  */
 const ListParser = {
     'response': Response,
-    'validate': Validate,
-    'sanitize': Sanitize,
     /** Method ListParser->parseList
     * Parses the form & then the list. 
     */
@@ -19,7 +17,7 @@ const ListParser = {
         this.response = FormParser.parse(submittedForm);
         
         // Should return false if validation fails for a empty/null/bad value that we cannot process.
-        if(!this.validate.checkStringEmpty(this.response.result.to_sort)){
+        if(!Validate.checkStringEmpty(this.response.result.to_sort)){
 
             this.response.error = 1;
             this.response.result = null;
@@ -30,7 +28,7 @@ const ListParser = {
         }
         
         // Sanitize csv list
-        let sortedResult = this.sanitize.csvList(this.response.result.to_sort);
+        let sortedResult = Sanitize.csvList(this.response.result.to_sort);
         
         // Checks if the string isnt empty. If csv list is string of empty commas.
         if(!sortedResult){

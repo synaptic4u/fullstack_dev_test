@@ -17,25 +17,18 @@ const FormParser = {
                 switch (true) {
                 
                     case (form.elements[key].type === "text"):
-                        // console.log(form.elements[key].name);
-                        // console.log(form.elements[key].value);
                         this.fields[form.elements[key].name] = form.elements[key].value;
                         break;
                 
                     case (form.elements[key].type === "textarea"):
-                        // console.log(form.elements[key].name);
-                        // console.log(form.elements[key].value);
                         this.fields[form.elements[key].name] = form.elements[key].value;
                         break;
 
                     case (form.elements[key].type === "select-one"):
-                        // console.log(form.elements[key].name);
-                        // console.log(form.elements[key].value);
                         this.fields[form.elements[key].name] = form.elements[key].value;
                         break;
                 }
             }
-            console.log(this.fields)
 
             this.response.result = this.fields;
         }
