@@ -61,12 +61,13 @@ const App = {
      */
     'loadResponse': function (response){
 
+        console.log('loadResponse'+response)
             // Null is the default value of the Response objects properties.
-            (response.message == null) ? '' : response.initMessage();
+            response.initMessage();
 
-            (response.result == null) ? '' : response.initResult();
+            response.initResult();
 
-            (response.JSCall == null) ? '' : response.initJSCall();
+            response.initJSCall();
     }
 
 };

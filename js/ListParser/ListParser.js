@@ -44,7 +44,7 @@ const ListParser = {
         }
 
         // Build the result
-        this.response.result = '<span class="info">Sorted List: ' + (sortedResult) ? sortedResult : 'No results to display' + '</span>';
+        this.response.result = '<span class="info">Sorted List: ' + sortedResult + '</span>';
 
         return this.response;
     },

@@ -21,17 +21,20 @@ const Response = {
 
         let messageDiv = document.getElementById('message');
 
+        messageDiv.classList.remove('visible');
+        messageDiv.classList.add('hidden');
+
+        messageDiv.innerHTML = "";
+
         if (this.message != null) {
+          
             messageDiv.classList.remove('hidden');
             messageDiv.classList.add('visible');
 
             messageDiv.innerHTML = this.message;
-        } else {
-            messageDiv.classList.remove('visible');
-            messageDiv.classList.add('hidden');
+        } 
 
-            messageDiv.innerHTML = "";
-        }
+        this.message = null;
     },
     /**
      * Response -> initJSCall Creates dynamic module calls. 
@@ -52,6 +55,7 @@ const Response = {
             
             document.getElementById('dynamic').remove();
         }
+        this.JSCall = null;
     },
     /**
      * Response -> initResult Rewrites the HTML content with the result.
@@ -60,6 +64,8 @@ const Response = {
      */
     'initResult': function (){
         document.getElementById('result').innerHTML = this.result;
+
+        this.result = null;
     },
 };
 

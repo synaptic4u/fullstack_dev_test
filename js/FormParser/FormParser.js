@@ -8,27 +8,32 @@ const FormParser = {
 
         this.checkError(form.elements.length < 1);
 
-        for (const key in form.elements) {
+        if(this.error === 0){
 
-            switch (true) {
-            
-                case (form.elements[key].type === "input"):
-                    this.fields[form.elements[key].name] = form.elements[key].value;
-                    break;
-            
-                case (form.elements[key].type === "textarea"):
-                    this.fields[form.elements[key].name] = form.elements[key].value;
-                    break;
+            console.log(form.elements)
+            for (const key in form.elements) {
 
-                case (form.elements[key].type === "xxxx"):
-                    this.fields[form.elements[key].name] = form.elements[key].value;
-                    break;
+                switch (true) {
+                
+                    case (form.elements[key].type === "input"):
+                        this.fields[form.elements[key].name] = form.elements[key].value;
+                        break;
+                
+                    case (form.elements[key].type === "textarea"):
+                        this.fields[form.elements[key].name] = form.elements[key].value;
+                        break;
+
+                    case (form.elements[key].type === "select"):
+                        this.fields[form.elements[key].name] = form.elements[key].value;
+                        break;
+                }
             }
+            console.log(this.fields)
+
+            this.response.result = this.fields;
         }
 
         this.checkError(Object.keys(this.fields).length < 1);
-
-        this.response.result = this.fields;
 
         return this.response;
     },
