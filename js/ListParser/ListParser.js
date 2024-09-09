@@ -22,7 +22,6 @@ const ListParser = {
         // Should return false if validation fails for a empty/null/bad value that we cannot process.
         if(!this.validate.checkStringEmpty(this.response.result.to_sort)){
 
-            // FormParser returns empty to_sort field set in this.response.result
             this.response.error = 1;
             this.response.result = null;
 
@@ -31,21 +30,30 @@ const ListParser = {
             return this.response;
         }
         
-        // Parses Validation
-        // Split the string into an array by commas
-        let items = this.sanitize.csvList(this.response.result.to_sort);
+        // Sanitize csv list
+        let sortedResult = this.sanitize.csvList(this.response.result.to_sort);
+        
+        // checks if the string isnt empty. If csv list is string of empty commas.
+        if(!sortedResult){
 
-        // Sort the array alphabetically
-        items.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+            this.response.error = 1;
+            this.response.result = null;
 
-        // Join the sorted array back into a string
-        let sortedResult = items.join(', ');
+            this.response.message = '<span class="error">The comma seperated list cannot be empty values!<br>Please provide a comma seperated list of values.</span>';
+            
+            return this.response;
+        }
 
         // Build the result
         this.response.result = '<span class="info">Sorted List: ' + (sortedResult) ? sortedResult : 'No results to display' + '</span>';
 
         return this.response;
     },
+    /** Method: ListParser->attach
+     * Attaches the result to the calling router.
+     * @param {FormObject} request 
+     * @returns 
+     */
     'attach' : function(request){
 
         return this.parseList(request);

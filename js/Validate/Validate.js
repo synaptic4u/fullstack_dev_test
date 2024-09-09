@@ -18,19 +18,19 @@ const Validate = {
     'checkStringEmpty': function(value){
 
         switch (true) {
-            case (value === null ):
+            case (value == null):
                 return false;
                 break;
 
-            case (value === undefined):
+            case (value == undefined):
                 return false;
                 break;
 
-            case (value === ''):
+            case (value == ''):
                 return false;
                 break;
     
-            case (value.trim() === ''):
+            case (value.trim() == ''):
                 return false;
                 break;
         
