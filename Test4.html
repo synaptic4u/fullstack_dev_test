@@ -20,7 +20,7 @@ Please make sure your code runs as effectively as it can.
     
 	<form method="post" id="search_customers">
         <input type="text" id="searchBox" placeholder="Search by name">
-    
+        <br>
         <select id="ageDropdown">
             <option value="">Search by Age Group</option>
             <option value="18-19">18-19</option>
@@ -33,7 +33,7 @@ Please make sure your code runs as effectively as it can.
             <option value="80-89">80-89</option>
             <option value="90-99">90-99</option>
         </select>
-        
+        <br>
         <input type="submit" value="Search" />
     </form>
     
@@ -41,9 +41,14 @@ Please make sure your code runs as effectively as it can.
 
     <script type="module">
         // TEMPORARY SOLUTION 
-        import { CustomerList } from './CustomerList.js';
+//        import { CustomerList } from './CustomerList.js';
 
-        CustomerList.init(customers);
+//        CustomerList.init(customers);
+    
+        import { App } from "./js/App/App.js";
+
+        // Change param value for different functionality
+        App.init('test4');
     </script>
 
     <script type="text/javascript">
