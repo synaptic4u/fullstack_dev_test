@@ -30,7 +30,6 @@ const FormParser = {
 
         this.response.result = this.fields;
 
-        // console.log(this.response);
         return this.response;
     },
     'checkError': function(check){

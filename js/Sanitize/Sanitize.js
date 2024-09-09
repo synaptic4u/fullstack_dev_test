@@ -16,8 +16,10 @@ const Sanitize = {
         let csvList = csvRaw.split(',');
 
         csvList = csvList.map(
+
             item => item.trim()
         ).filter(
+            
             item => Validate.checkStringEmpty(item)
         );
         

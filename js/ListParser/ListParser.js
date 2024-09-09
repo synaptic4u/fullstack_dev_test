@@ -17,7 +17,6 @@ const ListParser = {
         
         // Get the form fields value
         this.response = FormParser.parse(submittedForm);
-        console.log(this.response);
         
         // Should return false if validation fails for a empty/null/bad value that we cannot process.
         if(!this.validate.checkStringEmpty(this.response.result.to_sort)){
@@ -33,7 +32,7 @@ const ListParser = {
         // Sanitize csv list
         let sortedResult = this.sanitize.csvList(this.response.result.to_sort);
         
-        // checks if the string isnt empty. If csv list is string of empty commas.
+        // Checks if the string isnt empty. If csv list is string of empty commas.
         if(!sortedResult){
 
             this.response.error = 1;

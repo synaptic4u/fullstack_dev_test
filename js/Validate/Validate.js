@@ -1,15 +1,5 @@
 
 const Validate = {
-    'checkInt': function (intVal){
-
-        return intVal;
-    },
-    'checkString': function(stringVal){
-        return stringVal;
-    },
-    'checkArray': function(arrayVal){
-        return arrayVal;
-    },
     /** Validate->checkStringEmpty
      * Validate that the field is not empty. Checks for empty or null values. Returns false if field is empty.
      * @param {String} value 
