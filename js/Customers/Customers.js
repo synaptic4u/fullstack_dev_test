@@ -1,8 +1,0 @@
-
-const Customers = {
-    
-};
-
-export {
-    Customers
-}

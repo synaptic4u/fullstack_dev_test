@@ -1,4 +1,3 @@
-import { Customers } from "../Customers/Customers.js";
 import { FormParser } from "../FormParser/FormParser.js";
 import { Response } from "../Response/Response.js";
 import { Validate } from "../Validate/Validate.js";
@@ -6,7 +5,6 @@ import { Validate } from "../Validate/Validate.js";
 
 const Search = {
     'response': Response,
-    'data_set': Customers,
     'search': function(request){
 
         this.response = FormParser.parse(request);
