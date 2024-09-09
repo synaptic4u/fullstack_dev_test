@@ -35,9 +35,12 @@ Please make sure your code runs as effectively as it can.
     <div id="message" class="message hidden"></div>
 
 	<form method="post" id="search_customers">
-        <input type="text" id="searchBox" placeholder="Search by name">
+
+        <input type="text" name="searchBox" placeholder="Search by name">
+        
         <br>
-        <select id="ageDropdown">
+
+        <select name="ageDropdown">
             <option value="">Search by Age Group</option>
             <option value="18-19">18-19</option>
             <option value="20-29">20-29</option>
@@ -49,7 +52,9 @@ Please make sure your code runs as effectively as it can.
             <option value="80-89">80-89</option>
             <option value="90-99">90-99</option>
         </select>
+
         <br>
+
         <input type="submit" value="Search" />
     </form>
     

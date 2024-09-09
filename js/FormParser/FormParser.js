@@ -10,20 +10,27 @@ const FormParser = {
 
         if(this.error === 0){
 
-            console.log(form.elements)
             for (const key in form.elements) {
 
+                // console.log(key);
+                // console.log(form.elements[key].type);
                 switch (true) {
                 
-                    case (form.elements[key].type === "input"):
+                    case (form.elements[key].type === "text"):
+                        // console.log(form.elements[key].name);
+                        // console.log(form.elements[key].value);
                         this.fields[form.elements[key].name] = form.elements[key].value;
                         break;
                 
                     case (form.elements[key].type === "textarea"):
+                        // console.log(form.elements[key].name);
+                        // console.log(form.elements[key].value);
                         this.fields[form.elements[key].name] = form.elements[key].value;
                         break;
 
-                    case (form.elements[key].type === "select"):
+                    case (form.elements[key].type === "select-one"):
+                        // console.log(form.elements[key].name);
+                        // console.log(form.elements[key].value);
                         this.fields[form.elements[key].name] = form.elements[key].value;
                         break;
                 }

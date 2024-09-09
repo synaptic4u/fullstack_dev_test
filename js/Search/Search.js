@@ -8,7 +8,7 @@ const Search = {
     'customer': Customers,
     'search': function(request){
 
-        this.response = FormParser.parse(request);
+        return this.response = FormParser.parse(request);
     },
     'attach' : function(request){
 
