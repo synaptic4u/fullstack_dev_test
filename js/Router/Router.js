@@ -10,7 +10,6 @@ import { Search } from "../Search/Search.js";
  * Returns the instantiated
  */
 const Router = {
-    'resource': null,
     'response': Response,
     'routes': {
         'test1': FormEventListener,
@@ -22,10 +21,9 @@ const Router = {
      * @param {String} route 
      * @returns Initiated TL Controller attached to UI - HTML Page
      */
-    'getRouter': function(route, resource){
+    'getRouter': function(route){
 
         if(route in this.routes){
-            this.resource = resource;
 
             return this.routes[route].attach();
             
@@ -47,11 +45,8 @@ const Router = {
      */
     'loadRouter': function(route, request){
         console.log(route, request);
-        console.log("Resource: " + this.resource);
 
         if(route in this.routes){
-            
-            this.loadResource;
 
             return this.routes[route].attach(request);
         }else{
@@ -63,30 +58,6 @@ const Router = {
             this.response.message = '<span class="error">JS Application\'s Route not found.<br>Please contact support for correct configuration.</span>';            
         }
 
-    },
-    'loadResource': function(){
-        if(this.resource){
-
-            let extension = this.resource.split('.').pop().toLowerCase();
-
-            switch (true) {
-                case (extension === 'json'):
-                    
-                    break;
-                case (extension === 'js'):
-                    
-                    break;
-            
-                default:
-                    this.response.JSCall = [
-                        'import { Utils } from "./js/Utils/Utils.js";' + 'Utils.submitBtnDisable();'
-                    ];
-                    this.response.error = 1;
-                    this.response.message = '<span class="error">JS Application\'s external file resources not found.<br>Please contact support for correct configuration.</span>';            
-        
-                    break;
-            }
-        }
     }
 };
 
