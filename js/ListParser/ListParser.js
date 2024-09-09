@@ -10,28 +10,38 @@ const ListParser = {
     'response': Response,
     'validate': Validate,
     'sanitize': Sanitize,
-    /** 
-    *   ListParser -> parseList. Parses the form & then the list. 
+    /** Method ListParser->parseList
+    * Parses the form & then the list. 
     */
     'parseList': function(submittedForm){
         
         // Get the form fields value
-        let formFields = FormParser.parse(submittedForm);
+        this.response = FormParser.parse(submittedForm);
+        console.log(this.response);
         
-        if(formFields){
+        if(this.response.result.to_sort){
+            console.log('this.response.result '+ this.response.result.to_sort);
 
-        }
-        // Validate that the field is not empty
-        if (textArea.trim() === '') {
+            // Validate that the field is not empty
+            if (this.response.result.to_sort.trim() === '') {
+                this.response.error = 1;
+
+                this.response.message = '<span class="error">The textarea cannot be empty!</span>';
+                
+                return this.response;
+            }
+        }else{
+            // FormParser returns empty to_sort field set in this.response.result
             this.response.error = 1;
 
-            this.response.message = '<span class="error">The textarea cannot be empty!</span>';
+            this.response.message = '<span class="error">Form submission error. Please contact support.</span>';
             
             return this.response;
         }
+        
 
         // Split the string into an array by commas
-        let items = textArea.split(',');
+        let items = this.response.result.to_sort.split(',');
 
         // Clean up the array: remove extra spaces and filter out empty items
         items = items.map(

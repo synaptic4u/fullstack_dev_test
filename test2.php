@@ -13,10 +13,19 @@
  * Please make sure your code runs as effectively as it can.
  */
 
-// $con holds the connection
-require_once('db.php');
 
-// Query to get products with categories
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test2</title>
+</head>
+<body>
+<h1>Products</h1>
+
+<?php
+
+// Prepare the SQL query to get products with categories
 $query = "
     SELECT 
         IFNULL(c.category, 'Uncategorized') AS category, 
@@ -31,44 +40,42 @@ $query = "
         p.product ASC
 ";
 
-$result = $con->query($query);
+// Prepare the statement
+if ($stmt = $con->prepare($query)) {
+    // Execute the statement
+    $stmt->execute();
 
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Test2</title>
-</head>
-<body>
-<h1>Products</h1>
+    // Get the result set
+    $result = $stmt->get_result();
 
-<?php
-if ($result->num_rows > 0) {
-    $current_category = null;
-
-    // Loop through the results and display them
-    while ($row = $result->fetch_assoc()) {
-        if ($current_category !== $row['category']) {
-            // Close previous list if needed
-            if ($current_category !== null) {
-                echo "</ul>";
+    // Check if there are any rows
+    if ($result->num_rows > 0) {
+        $currentCategory = '';
+        while ($row = $result->fetch_assoc()) {
+            // Check if we're in a new category
+            if ($row['category'] !== $currentCategory) {
+                // Close the previous list if necessary and open a new one
+                if (!empty($currentCategory)) {
+                    echo "</ul>";
+                }
+                // Print category header
+                echo "<h2>" . htmlspecialchars($row['category']) . "</h2>";
+                echo "<ul>";
+                $currentCategory = $row['category'];
             }
-            
-            // New category
-            $current_category = $row['category'];
-            echo "<h2>{$current_category}</h2>";
-            echo "<ul>";
+            // Print product name and price
+            echo "<li>" . htmlspecialchars($row['product']) . " - $" . number_format($row['price'], 2) . "</li>";
         }
-        
-        echo "<li>{$row['product']} - \${$row['price']}</li>";
+        echo "</ul>"; // Close the last list
+    } else {
+        echo "<p>There are no results available.</p>";
     }
 
-    // Close the last list
-    echo "</ul>";
+    // Close the statement
+    $stmt->close();
 } else {
-    echo "<p>There are no results available.</p>";
+    echo "Failed to prepare the statement: " . $con->error;
 }
-
 $con->close();
 ?>
 
