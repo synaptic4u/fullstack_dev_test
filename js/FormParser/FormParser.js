@@ -3,6 +3,11 @@ import { Response } from "../Response/Response.js";
 const FormParser = {
     'response': Response,
     'fields': {},
+    /** FormParser->parse
+     * Parses the form input values. Scoped for current application needs.
+     * @param {FormObject} form Form Object is required.
+     * @returns 
+     */
     'parse': function (form){
 
         console.log(form.elements.length);

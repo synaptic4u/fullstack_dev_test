@@ -3,7 +3,12 @@ import { Response } from "../Response/Response.js";
 import { Validate } from "../Validate/Validate.js";
 
 const Search = {
-    'response': null,
+    'response': Response,
+    /**
+     * Searches the customer data for the parsed form search values.
+     * @param {FormObject} request 
+     * @returns Response
+     */
     'search': function(request){
 
         this.response = FormParser.parse(request);
