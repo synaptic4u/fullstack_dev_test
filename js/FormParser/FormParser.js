@@ -1,14 +1,14 @@
 import { Response } from "../Response/Response.js";
 
 const FormParser = {
-    'error': 0,
     'response': Response,
     'fields': {},
     'parse': function (form){
 
+        console.log(form.elements.length);
         this.checkError(form.elements.length < 1);
 
-        if(this.error === 0){
+        if(this.response.error === 0){
 
             for (const key in form.elements) {
 
@@ -40,10 +40,8 @@ const FormParser = {
     'checkError': function(check){
 
         if(check == true){
-            
-            this.error = 1;
-            
-            this.response.error = this.error;
+                        
+            this.response.error = 1;
 
             this.response.message = '<span class="error">Unable to parse form fields.<br>Please constact support.</span>';
         }

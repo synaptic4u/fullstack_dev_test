@@ -26,7 +26,6 @@ const Router = {
         if(route in this.routes){
 
             return this.routes[route].attach();
-            
         }else{
             
             this.response.JSCall = [
@@ -35,19 +34,18 @@ const Router = {
             this.response.error = 1;
             this.response.message = '<span class="error">JS Application\'s Route not found.<br>Please contact support for correct configuration.</span>';            
         }
-
     },
     /**
      * Router -> loadRouter Secondary level routing functionality to include a request body which will be used in processing the request. Form submission.
      * @param {String} route 
-     * @param {Object} request Body of the request. Ex. Form object
+     * @param {Object} request Body of the request. Eg. Form object
      * @returns 
      */
     'loadRouter': function(route, request){
         console.log(route, request);
 
         if(route in this.routes){
-
+            // console.log(this.routes[route]);
             return this.routes[route].attach(request);
         }else{
             
@@ -57,7 +55,6 @@ const Router = {
             this.response.error = 1;
             this.response.message = '<span class="error">JS Application\'s Route not found.<br>Please contact support for correct configuration.</span>';            
         }
-
     }
 };
 

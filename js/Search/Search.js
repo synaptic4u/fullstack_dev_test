@@ -2,7 +2,6 @@ import { FormParser } from "../FormParser/FormParser.js";
 import { Response } from "../Response/Response.js";
 import { Validate } from "../Validate/Validate.js";
 
-
 const Search = {
     'response': Response,
     'search': function(request){
