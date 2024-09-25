@@ -10,30 +10,34 @@ const FormParser = {
 
         if(this.response.error === 0){
 
+            this.response.result = {};
+
             for (const key in form.elements) {
 
                 // console.log(key);
                 // console.log(form.elements[key].type);
+                // console.log(form.elements[key].value);
                 switch (true) {
                 
                     case (form.elements[key].type === "text"):
-                        this.fields[form.elements[key].name] = form.elements[key].value;
+                        this.response.result[form.elements[key].name] = form.elements[key].value;
                         break;
                 
                     case (form.elements[key].type === "textarea"):
-                        this.fields[form.elements[key].name] = form.elements[key].value;
+                        this.response.result[form.elements[key].name] = form.elements[key].value;
                         break;
 
                     case (form.elements[key].type === "select-one"):
-                        this.fields[form.elements[key].name] = form.elements[key].value;
+                        this.response.result[form.elements[key].name] = form.elements[key].value;
                         break;
                 }
             }
-
-            this.response.result = this.fields;
+            // console.log('this.response.result');
+            // console.log(this.response.result);
         }
 
-        this.checkError(Object.keys(this.fields).length < 1);
+        // console.log(Object.keys(this.response.result).length < 1);
+        this.checkError(Object.keys(this.response.result).length < 1);
 
         return this.response;
     },
