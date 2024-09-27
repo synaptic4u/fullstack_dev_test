@@ -11,3 +11,6 @@ Q 2 & 3 I havent actually done yet. Played with it when i didnt have food but wi
 Plan to follow something similar for php.
 A big consideration to look at for performance, is to include scalability in performance. 
 A single page function will always outperform a 12 page app. But to refactor multiple Godlike functions...
+
+Sep 27:
+
