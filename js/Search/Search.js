@@ -4,6 +4,30 @@ import { Validate } from "../Validate/Validate.js";
 
 const Search = {
     'response': Response,
+
+    'filterByAgeRange': function(customers, ageRange) {
+      
+        let [minAge, maxAge] = ageRange.split('-').map(Number);
+        
+        return customers.filter(customer =>
+        
+            customer.age >= minAge && customer.age <= maxAge
+        );
+    },
+    'calcAge': function(birthDate){
+
+        let today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDifference = today.getMonth() - birthDate.getMonth();
+
+        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+        
+            age--;
+        }
+        
+        return age;
+
+    },
     /**
      * Searches the customer data for the parsed form search values.
      * @param {FormObject} request 
@@ -23,6 +47,13 @@ const Search = {
 
             console.log('this.response.result.search_age')
             console.log(this.response.result.search_age)
+
+            customers = customers.map(customer => ({
+                ...customer,
+                age: this.calcAge(customer.birthdate)
+            }));
+    
+            
         }
 
         if(Validate.checkStringEmpty(this.response.result.search_name)){
