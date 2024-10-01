@@ -20,11 +20,14 @@ const Search = {
             customer.age >= minAge && customer.age <= maxAge
         );
     },
-    'calcAge': function(birthDate){
+    'calcAge': function(ageDate){
 
+        let birthDate = new Date(ageDate);
         let today = new Date();
+
         let age = today.getFullYear() - birthDate.getFullYear();
-        const monthDifference = today.getMonth() - birthDate.getMonth();
+        
+        let monthDifference = today.getMonth() - birthDate.getMonth();
 
         if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
         
@@ -70,11 +73,12 @@ const Search = {
             customers = this.filterByName(customers, this.response.result.search_name);
         }
 
+        this.buildResponse(customers);
         
         return this.response;
     },
-    'buildResponse': function(){
-        let tableContent = `
+    'buildResponse': function(customers){
+        this.response.result = `
             <table>
                 <thead>
                     <tr>
@@ -82,17 +86,16 @@ const Search = {
                         <th>Age</th>
                     </tr>
                 </thead>
-                <tbody>
-        `;    
-        
+                <tbody>`;    
+        console.log(customers);
         customers.forEach(customer => {
-            
-            this.response.result += `<tr><td>${customer.name}</td><td>${customer.age}</td></tr>`;
+            console.log(customer);
+            this.response.result += `<tr><td>` + customer.name + `</td><td>` + customer.age + `</td></tr>`;
         });
         
-        this.response.result += '</tbody></table>';
+        this.response.result += `</tbody></table>`;
         
-        return this.response;
+        console.log(this.response.result);
     },
     'attach' : function(request){
 
