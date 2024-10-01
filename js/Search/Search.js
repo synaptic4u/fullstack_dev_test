@@ -4,7 +4,13 @@ import { Validate } from "../Validate/Validate.js";
 
 const Search = {
     'response': Response,
-
+    'filterByName': function(customers, query) {
+      
+        return customers.filter(customer => 
+      
+            customer.name.toLowerCase().includes(query.toLowerCase())
+        );
+    },
     'filterByAgeRange': function(customers, ageRange) {
       
         let [minAge, maxAge] = ageRange.split('-').map(Number);
@@ -26,7 +32,6 @@ const Search = {
         }
         
         return age;
-
     },
     /**
      * Searches the customer data for the parsed form search values.
@@ -43,25 +48,50 @@ const Search = {
             console.log(this.response.result)
             console.log('customers' + customers)
 
+            customers = customers.map(customer => ({
+                ...customer,
+                age: this.calcAge(customer.birthdate)
+            }));
+ 
+
         if(Validate.checkStringEmpty(this.response.result.search_age)){
 
             console.log('this.response.result.search_age')
             console.log(this.response.result.search_age)
 
-            customers = customers.map(customer => ({
-                ...customer,
-                age: this.calcAge(customer.birthdate)
-            }));
-    
-            
+            customers = this.filterByAgeRange(customers, this.response.result.search_age);
         }
 
         if(Validate.checkStringEmpty(this.response.result.search_name)){
 
             console.log('this.response.result.search_name')
-            console.log(this.response.result.search_name)            
+            console.log(this.response.result.search_name)
+
+            customers = this.filterByName(customers, this.response.result.search_name);
         }
 
+        
+        return this.response;
+    },
+    'buildResponse': function(){
+        let tableContent = `
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;    
+        
+        customers.forEach(customer => {
+            
+            this.response.result += `<tr><td>${customer.name}</td><td>${customer.age}</td></tr>`;
+        });
+        
+        this.response.result += '</tbody></table>';
+        
         return this.response;
     },
     'attach' : function(request){
