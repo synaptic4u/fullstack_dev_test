@@ -54,15 +54,18 @@ const Search = {
         this.response = FormParser.parse(request);
 
         this.addAgeToCustomers();
-        
-        if(Validate.checkStringEmpty(this.response.result.search_age)){
 
-            this.filterByAgeRange(this.response.result.search_age);   
+        let search_age = this.response.result.search_age;
+        let search_name = this.response.result.search_name;
+        
+        if(Validate.checkStringEmpty(search_age)){
+
+            this.filterByAgeRange(search_age);   
         }
 
-        if(Validate.checkStringEmpty(this.response.result.search_name)){
+        if(Validate.checkStringEmpty(search_name)){
 
-            this.filterByName(this.response.result.search_name);            
+            this.filterByName(search_name);            
         }
 
         this.buildResponse();
