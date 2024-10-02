@@ -4,19 +4,19 @@ import { Validate } from "../Validate/Validate.js";
 
 const Search = {
     'response': Response,
-    'dataArray': null,
-    'filterByName': function(customers, query) {
+    'dataArray': [],
+    'filterByName': function( query) {
+                
+        this.dataArray = this.dataArray.filter(data => 
       
-        return customers.filter(customer => 
-      
-            customer.name.toLowerCase().includes(query.toLowerCase())
-        );
+            data.name.toLowerCase().includes(query.toLowerCase())
+        );       
     },
-    'filterByAgeRange': function(customers, ageRange) {
-      
+    'filterByAgeRange': function(ageRange) {
+
         let [minAge, maxAge] = ageRange.split('-').map(Number);
         
-        return customers.filter(customer =>
+        this.dataArray = this.dataArray.filter(customer =>
         
             customer.age >= minAge && customer.age <= maxAge
         );
@@ -37,6 +37,13 @@ const Search = {
         
         return age;
     },
+    'addAgeToCustomers': function(){
+
+        this.dataArray = customers.map(customer => ({
+            ...customer,
+            age: this.calcAge(customer.birthdate)
+        }));
+    },
     /**
      * Searches the customer data for the parsed form search values.
      * @param {FormObject} request 
@@ -45,33 +52,17 @@ const Search = {
     'search': function(request){
 
         this.response = FormParser.parse(request);
+
+        this.addAgeToCustomers();
         
-            // console.log('Search this.response');
-            // console.log(this.response);
-            // console.log('Search this.response.result');
-            // console.log(this.response.result);
-
-            this.dataArray = customers.map(customer => ({
-                ...customer,
-                age: this.calcAge(customer.birthdate)
-            }));
-
-            console.log('customers' + JSON.stringify(this.dataArray))
-
         if(Validate.checkStringEmpty(this.response.result.search_age)){
 
-            console.log('this.response.result.search_age')
-            console.log(this.response.result.search_age)
-
-            this.dataArray = this.filterByAgeRange(this.dataArray, this.response.result.search_age);
+            this.filterByAgeRange(this.response.result.search_age);   
         }
 
         if(Validate.checkStringEmpty(this.response.result.search_name)){
 
-            console.log('this.response.result.search_name')
-            console.log(this.response.result.search_name)
-
-            this.dataArray = this.filterByName(this.dataArray, this.response.result.search_name);
+            this.filterByName(this.response.result.search_name);            
         }
 
         this.buildResponse();
@@ -79,6 +70,7 @@ const Search = {
         return this.response;
     },
     'buildResponse': function(){
+
         this.response.result = `
             <table>
                 <thead>
@@ -88,15 +80,13 @@ const Search = {
                     </tr>
                 </thead>
                 <tbody>`;    
-        console.log(JSON.stringify(this.dataArray));
-        this.dataArray.forEach(customer => {
-            console.log(customer);
+
+        for (const customer of this.dataArray) {
+            
             this.response.result += `<tr><td>` + customer.name + `</td><td>` + customer.age + `</td></tr>`;
-        });
+        };
         
         this.response.result += `</tbody></table>`;
-        
-        console.log(this.response.result);
     },
     'attach' : function(request){
 
