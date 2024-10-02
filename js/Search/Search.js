@@ -4,6 +4,7 @@ import { Validate } from "../Validate/Validate.js";
 
 const Search = {
     'response': Response,
+    'dataArray': null,
     'filterByName': function(customers, query) {
       
         return customers.filter(customer => 
@@ -45,24 +46,24 @@ const Search = {
 
         this.response = FormParser.parse(request);
         
-            console.log('Search this.response')
-            console.log(this.response)
-            console.log('Search this.response.result')
-            console.log(this.response.result)
-            console.log('customers' + customers)
+            // console.log('Search this.response');
+            // console.log(this.response);
+            // console.log('Search this.response.result');
+            // console.log(this.response.result);
 
-            customers = customers.map(customer => ({
+            this.dataArray = customers.map(customer => ({
                 ...customer,
                 age: this.calcAge(customer.birthdate)
             }));
- 
+
+            console.log('customers' + JSON.stringify(this.dataArray))
 
         if(Validate.checkStringEmpty(this.response.result.search_age)){
 
             console.log('this.response.result.search_age')
             console.log(this.response.result.search_age)
 
-            customers = this.filterByAgeRange(customers, this.response.result.search_age);
+            this.dataArray = this.filterByAgeRange(this.dataArray, this.response.result.search_age);
         }
 
         if(Validate.checkStringEmpty(this.response.result.search_name)){
@@ -70,14 +71,14 @@ const Search = {
             console.log('this.response.result.search_name')
             console.log(this.response.result.search_name)
 
-            customers = this.filterByName(customers, this.response.result.search_name);
+            this.dataArray = this.filterByName(this.dataArray, this.response.result.search_name);
         }
 
-        this.buildResponse(customers);
+        this.buildResponse();
         
         return this.response;
     },
-    'buildResponse': function(customers){
+    'buildResponse': function(){
         this.response.result = `
             <table>
                 <thead>
@@ -87,8 +88,8 @@ const Search = {
                     </tr>
                 </thead>
                 <tbody>`;    
-        console.log(customers);
-        customers.forEach(customer => {
+        console.log(JSON.stringify(this.dataArray));
+        this.dataArray.forEach(customer => {
             console.log(customer);
             this.response.result += `<tr><td>` + customer.name + `</td><td>` + customer.age + `</td></tr>`;
         });
