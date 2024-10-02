@@ -1,10 +1,15 @@
 import { FormParser } from "../FormParser/FormParser.js";
 import { Response } from "../Response/Response.js";
 import { Validate } from "../Validate/Validate.js";
+import { Customer } from "../Customer/Customer.js";
 
 const Search = {
     'response': Response,
     'dataArray': [],
+    /**
+     * Filters the local data array for a object by name.
+     * @param {String} query 
+     */
     'filterByName': function( query) {
                 
         this.dataArray = this.dataArray.filter(data => 
@@ -12,15 +17,24 @@ const Search = {
             data.name.toLowerCase().includes(query.toLowerCase())
         );       
     },
+    /**
+     * Filters the local dataArray for the age range, works off previously calculated age
+     * @param {String``} ageRange 
+     */
     'filterByAgeRange': function(ageRange) {
 
         let [minAge, maxAge] = ageRange.split('-').map(Number);
         
-        this.dataArray = this.dataArray.filter(customer =>
+        this.dataArray = this.dataArray.filter(data =>
         
-            customer.age >= minAge && customer.age <= maxAge
+            data.age >= minAge && data.age <= maxAge
         );
     },
+    /**
+     * Calculates the birthday to age based upon the current date
+     * @param {Date String} ageDate 
+     * @returns 
+     */
     'calcAge': function(ageDate){
 
         let birthDate = new Date(ageDate);
@@ -37,6 +51,9 @@ const Search = {
         
         return age;
     },
+    /**
+     * Parses the global variable customers to calculate each customers age and add it to the local dataArray.
+     */
     'addAgeToCustomers': function(){
 
         this.dataArray = customers.map(customer => ({
@@ -68,28 +85,7 @@ const Search = {
             this.filterByName(search_name);            
         }
 
-        this.buildResponse();
-        
-        return this.response;
-    },
-    'buildResponse': function(){
-
-        this.response.result = `
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                    </tr>
-                </thead>
-                <tbody>`;    
-
-        for (const customer of this.dataArray) {
-            
-            this.response.result += `<tr><td>` + customer.name + `</td><td>` + customer.age + `</td></tr>`;
-        };
-        
-        this.response.result += `</tbody></table>`;
+        return Customer.customerTableTemplate(this.dataArray);
     },
     'attach' : function(request){
 
