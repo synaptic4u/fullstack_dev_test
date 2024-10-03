@@ -40,13 +40,21 @@ $query = "
         p.product ASC
 ";
 
+$con = new mysqli('localhost', 'devtest', 'Fried_Mushrooms_with_Feta', 'devtest');
+
+// Check connection
+if ($con->connect_error) {
+  die("Connection failed: " . $con->connect_error);
+}
+
 // Prepare the statement
-if ($stmt = $con->prepare($query)) {
+$stmt = $con->prepare($query);
     // Execute the statement
     $stmt->execute();
 
     // Get the result set
     $result = $stmt->get_result();
+    var_dump($result);
 
     // Check if there are any rows
     if ($result->num_rows > 0) {
@@ -73,9 +81,6 @@ if ($stmt = $con->prepare($query)) {
 
     // Close the statement
     $stmt->close();
-} else {
-    echo "Failed to prepare the statement: " . $con->error;
-}
 $con->close();
 ?>
 
