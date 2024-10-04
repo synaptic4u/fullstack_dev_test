@@ -1,6 +1,6 @@
 <?php
 
-namespace Synaptic4u\Emile;
+namespace Synaptic4u\Emile\DBMYSQLI;
 
 use Exception;
 use mysqli;
@@ -26,7 +26,29 @@ class DBMYSQLI{
         }
     }
 
-    public function query($query, $params){
+    public function query($query, $params = null){
+                
+        try {
+            // Prepare the statement
+            $stmt = $this->connection->prepare($query);
+            
+            // Execute the statement
+            $stmt->execute();
+
+            // Get the result set
+            $result = $stmt->get_result();
+            
+            // Close the statement
+            
+            $stmt->close();
+            
+            $this->connection->close();
         
+        return $result;
+
+        } catch (Exception $e) {
+            
+            die($e);
+        }
     }
 }

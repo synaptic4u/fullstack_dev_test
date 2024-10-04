@@ -13,6 +13,12 @@
  * Please make sure your code runs as effectively as it can.
  */
 
+    if (file_exists(dirname(__FILE__, 1).'/vendor/autoload.php')) {
+        
+        require_once dirname(__FILE__, 1).'/vendor/autoload.php';
+    }
+ 
+    use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 
 ?>
 <!DOCTYPE html>
@@ -25,63 +31,59 @@
 
 <?php
 
-// Prepare the SQL query to get products with categories
-$query = "
-    SELECT 
-        IFNULL(c.category, 'Uncategorized') AS category, 
-        p.product, 
-        p.price 
-    FROM 
-        products p
-    LEFT JOIN 
-        categories c ON p.category_id = c.id
-    ORDER BY 
-        category ASC, 
-        p.product ASC
-";
+    // Prepare the SQL query to get products with categories
+    $query = "
+        SELECT 
+            IFNULL(c.category, 'Uncategorized') AS category, 
+            p.product, 
+            p.price 
+        FROM 
+            products p
+        LEFT JOIN 
+            categories c ON p.category_id = c.id
+        ORDER BY 
+            category ASC, 
+            p.product ASC
+    ";
 
-$con = new mysqli('localhost', 'devtest', 'Fried_Mushrooms_with_Feta', 'devtest');
+    $db = new DBMYSQLI();
 
-// Check connection
-if ($con->connect_error) {
-  die("Connection failed: " . $con->connect_error);
-}
-
-// Prepare the statement
-$stmt = $con->prepare($query);
-    // Execute the statement
-    $stmt->execute();
-
-    // Get the result set
-    $result = $stmt->get_result();
-    var_dump($result);
-
+    $result = $db->query($query);
+    
     // Check if there are any rows
     if ($result->num_rows > 0) {
+    
         $currentCategory = '';
+    
         while ($row = $result->fetch_assoc()) {
+    
             // Check if we're in a new category
             if ($row['category'] !== $currentCategory) {
+    
                 // Close the previous list if necessary and open a new one
                 if (!empty($currentCategory)) {
+    
                     echo "</ul>";
                 }
+    
                 // Print category header
                 echo "<h2>" . htmlspecialchars($row['category']) . "</h2>";
+    
                 echo "<ul>";
+    
                 $currentCategory = $row['category'];
             }
+
             // Print product name and price
             echo "<li>" . htmlspecialchars($row['product']) . " - $" . number_format($row['price'], 2) . "</li>";
         }
+
         echo "</ul>"; // Close the last list
     } else {
-        echo "<p>There are no results available.</p>";
+
+        echo "<h3>There are no results available.</h3>";
     }
 
-    // Close the statement
-    $stmt->close();
-$con->close();
 ?>
 
 </body>
