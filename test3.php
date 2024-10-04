@@ -37,18 +37,18 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 
 	// Prepare the SQL query to get products with categories
 	$query = '	
-		select sum(p.price) as SpentTotal, o.user_id, GROUP_CONCAT(u.first_name, " ", u.last_name) as Customer
-  		  from orders o
+
+		select sum(p.price) as SpentTotal, GROUP_CONCAT(u.first_name, " ", u.last_name) as Customer, month(o.order_date), year(o.order_date) 
+		  from orders o
 		  left join order_items oi
-			on o.id = oi.order_id
+		    on o.id = oi.order_id
 		  left join products p
-			on oi.product_id = p.id 
-		  left join users u 
-			on o.user_id = u.id 
+		    on oi.product_id = p.id 
+ 		  left join users u 
+		    on o.user_id = u.id 
 		 where o.order_status_id  in(1,2)
-		 group by o.user_id
-		 order by sum(p.price) DESC ;
-	';
+		 group by year(o.order_date), month(o.order_date), u.last_name, u.first_name
+		 order by sum(p.price) DESC , u.last_name, u.first_name;	';
 
 	$db = new DBMYSQLI();
 
