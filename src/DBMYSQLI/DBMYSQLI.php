@@ -39,7 +39,6 @@ class DBMYSQLI{
             $result = $stmt->get_result();
             
             // Close the statement
-            
             $stmt->close();
             
             $this->connection->close();
