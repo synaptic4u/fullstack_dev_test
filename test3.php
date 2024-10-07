@@ -39,7 +39,7 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 	$query = '	
 		select year(o.order_date) as sales_year, 
 			   monthname(o.order_date) as sales_month, 
-			   GROUP_CONCAT(distinct u.last_name, " ",  u.first_name) as customer,
+			   GROUP_CONCAT(distinct u.last_name, ", ",  u.first_name) as customer,
 			    group_concat(distinct p.product) as products, sum(p.price) as sales_total 
 		  from orders o
 		  left join order_items oi
@@ -86,7 +86,7 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 						<td>
 							'. $row["sales_month"] .'
 						</td>
-						<td>
+						<td style="white-space:nowrap;">
 							'. $row["customer"] .'
 						</td>
 						<td>
