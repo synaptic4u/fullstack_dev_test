@@ -37,8 +37,10 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 
 	// Prepare the SQL query to get products with categories
 	$query = '	
-
-		select year(o.order_date), monthname(o.order_date), GROUP_CONCAT(distinct u.last_name, " ",  u.first_name) as Customer, group_concat(distinct p.product) as Products, sum(p.price) as SpentTotal 
+		select year(o.order_date) as sales_year, 
+			   monthname(o.order_date) as sales_month, 
+			   GROUP_CONCAT(distinct u.last_name, " ",  u.first_name) as customer,
+			    group_concat(distinct p.product) as products, sum(p.price) as sales_total 
 		  from orders o
 		  left join order_items oi
 			on o.id = oi.order_id
@@ -54,39 +56,56 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 	$db = new DBMYSQLI();
 
 	$result = $db->query($query);
+	// var_dump(json_encode($result));
 
 	// Check if there are any rows
 	if ($result->num_rows > 0) {
 
-	$currentCategory = '';
+		$html = '<br>
+			<table>
+				<thead>
+				
+					<tr>
+						<th>Year</th>
+						<th>Month</th>
+						<th>Customer</th>
+						<th>Product List</th>
+						<th>Total Spent</th>
+					</tr>
+				</thead>
 
-	while ($row = $result->fetch_assoc()) {
+				<tbody>';
+				
+		while ($row = $result->fetch_assoc()) {
 
-		// Check if we're in a new category
-		if ($row['category'] !== $currentCategory) {
-
-			// Close the previous list if necessary and open a new one
-			if (!empty($currentCategory)) {
-
-				echo "</ul>";
-			}
-
-			// Print category header
-			echo "<h2>" . htmlspecialchars($row['category']) . "</h2>";
-
-			echo "<ul>";
-
-			$currentCategory = $row['category'];
+			$html .= '
+					<tr>
+						<td>
+							'. $row['sales_year'] .'
+						</td>
+						<td>
+							'. $row["sales_month"] .'
+						</td>
+						<td>
+							'. $row["customer"] .'
+						</td>
+						<td>
+							'. $row["products"] .'
+						</td>
+						<td>
+							'. $row["sales_total"] .'
+						</td>
+					</tr>';
 		}
 
-		// Print product name and price
-		echo "<li>" . htmlspecialchars($row['product']) . " - $" . number_format($row['price'], 2) . "</li>";
-	}
+		$html .= '
+				</tbody>
+			</table>';
 
-	echo "</ul>"; // Close the last list
+		echo($html);
 	} else {
 
-	echo "<h3>There are no results available.</h3>";
+		echo "<h3>There are no results available.</h3>";
 	}
 ?>
 
