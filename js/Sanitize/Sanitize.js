@@ -3,10 +3,7 @@ import { Validate } from "../Validate/Validate.js";
 
 const Sanitize = {
     'response': Response,
-    'int': function (intVal){
 
-        return intVal;
-    },
     /** Method: Sanitize->csvList
      * Parses string list to array. Removes array value whitespace. Filters out empty values. Creates and returns a new array.
      * @param {String} csvList 

@@ -68,7 +68,6 @@ const App = {
 
             response.initJSCall();
     }
-
 };
 
 export {

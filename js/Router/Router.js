@@ -11,6 +11,9 @@ import { Search } from "../Search/Search.js";
  */
 const Router = {
     'response': Response,
+    /**
+     * routes object is the Router objects routing storage
+     */
     'routes': {
         'test1': FormEventListener,
         'test4': FormEventListener,

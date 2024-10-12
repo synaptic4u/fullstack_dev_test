@@ -1,6 +1,6 @@
 
 const Validate = {
-    /** Validate->checkStringEmpty
+    /** 
      * Validate that the field is not empty. Checks for empty or null values. Returns false if field is empty.
      * @param {String} value 
      * @returns Bool

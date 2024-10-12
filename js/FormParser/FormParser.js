@@ -46,6 +46,10 @@ const FormParser = {
 
         return this.response;
     },
+    /**
+     * Sets the Response objects default error response for form parsing failure.
+     * @param {Boolean} check 
+     */
     'checkError': function(check){
 
         if(check == true){

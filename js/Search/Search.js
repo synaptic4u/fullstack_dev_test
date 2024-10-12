@@ -87,10 +87,6 @@ const Search = {
 
         return Customer.customerTableTemplate(this.dataArray);
     },
-    'attach' : function(request){
-
-        return this.search(request);
-    }
 };
 
 export {

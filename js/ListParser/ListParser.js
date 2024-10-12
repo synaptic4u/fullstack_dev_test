@@ -8,7 +8,8 @@ import { Validate } from "../Validate/Validate.js";
  */
 const ListParser = {
     'response': Response,
-    /** Method ListParser->parseList
+    /** 
+    * Method ListParser->parseList
     * Parses the form & then the list. 
     */
     'parseList': function(submittedForm){

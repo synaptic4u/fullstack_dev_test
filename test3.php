@@ -80,6 +80,7 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 
 			$html .= '
 					<tr>
+				
 						<td>
 							'. $row['sales_year'] .'
 						</td>
@@ -108,7 +109,6 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 		echo "<h3>There are no results available.</h3>";
 	}
 ?>
-
 
 </body>
 </html>

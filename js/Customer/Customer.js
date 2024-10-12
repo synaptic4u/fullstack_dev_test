@@ -1,5 +1,10 @@
 import { Response } from "../Response/Response.js";
 
+/**
+ * Object Customer
+ * Parses a custom customers iterable object into a display result based upon a search.
+ * Cusomer -> customerTableTemplate Parses the object into HTMl table.
+ */
 const Customer = {
     'response': Response,
     /**
