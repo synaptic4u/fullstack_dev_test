@@ -1,5 +1,9 @@
 import { App } from "../App/App.js";
 
+/**
+ * Object FormEventListener manages the events related to Forms.
+ * Acts as a second level Routing object.
+ */
 const FormEventListener = {
     /**
      * Attaches a Event Listener to the submit event from a form. -> nodeName===FORM

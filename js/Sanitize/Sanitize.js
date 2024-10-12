@@ -1,10 +1,13 @@
 import { Response } from "../Response/Response.js";
 import { Validate } from "../Validate/Validate.js";
 
+/**
+ * Object Sanitize Provides csv list whitespace trimming and sorting
+ */
 const Sanitize = {
     'response': Response,
 
-    /** Method: Sanitize->csvList
+    /** 
      * Parses string list to array. Removes array value whitespace. Filters out empty values. Creates and returns a new array.
      * @param {String} csvList 
      * @returns {Array} list
@@ -22,7 +25,7 @@ const Sanitize = {
         
         csvList = this.sortArrayAZ(csvList);
 
-        return csvList.join(', ');
+        return csvList;
     },
     /** Method: Sanitize->sortArrayAZ
      * Sorts the  array alphabetically. Rejo
@@ -35,10 +38,7 @@ const Sanitize = {
         items.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
 
         // Join the sorted array back into a string
-        return items;
-    },
-    'array': function(arrayVal){
-        return arrayVal;
+        return items.join(', ');
     }
 };
 

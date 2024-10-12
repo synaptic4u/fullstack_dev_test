@@ -1,12 +1,15 @@
 import { Response } from "../Response/Response.js";
 
+/**
+ * Object FormParser handles form parsing.
+ */
 const FormParser = {
     'response': Response,
     'fields': {},
-    /** FormParser->parse
+    /** 
      * Parses the form input values. Scoped for current application needs.
      * @param {FormObject} form Form Object is required.
-     * @returns 
+     * @returns {Response} response
      */
     'parse': function (form){
 

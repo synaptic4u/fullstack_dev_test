@@ -3,6 +3,10 @@ import { Response } from "../Response/Response.js";
 import { Validate } from "../Validate/Validate.js";
 import { Customer } from "../Customer/Customer.js";
 
+/**
+ * Object Search provides functionality to search the customers array with a name or age group query.
+ * Rebuilds the Customers array by calculating the age and adding it to each object in the array.
+ */
 const Search = {
     'response': Response,
     'dataArray': [],
@@ -52,7 +56,7 @@ const Search = {
         return age;
     },
     /**
-     * Parses the global variable customers to calculate each customers age and add it to the local dataArray.
+     * Parses the global variable array customers to calculate each customers age and add it to the local dataArray.
      */
     'addAgeToCustomers': function(){
 

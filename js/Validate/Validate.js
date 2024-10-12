@@ -1,4 +1,6 @@
-
+/**
+ * Object Validate checks for basic validation. Only chcks for empty strings.
+ */
 const Validate = {
     /** 
      * Validate that the field is not empty. Checks for empty or null values. Returns false if field is empty.
