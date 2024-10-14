@@ -37,21 +37,21 @@
     <!-- MESSAGE DIV - INFO, SUCCESS, ERROR -->
     <div id="message" class="message hidden"></div>
 
-    <div class="form">
+    <div class="container">
         <!-- FORM: FORM fields must have a name & the FORM must have a ID to work-->
         <form method="post" id="list_parser">
             <input type="hidden" name="action" value="sort" />
 
             <label for="to_sort" class="text">Please enter the words/phrases to be sorted separated by commas:</label><br/>
             
-            <textarea class="textarea" name="to_sort" style="width: 400px; height: 150px;"></textarea>
+            <textarea class="textarea" name="to_sort" style="width: 100%; height: 150px;"></textarea>
 
-            <input type="submit" value="Sort" />
+            <input class="btn-submit" type="submit" value="Sort" />
         </form>
     </div>
 
     <!-- RESULT DIV - To display the requests response -->
-	<div id="result"></div>
+	<div id="result" class="container"></div>
 </body>
 
 

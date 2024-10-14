@@ -34,33 +34,35 @@ Please make sure your code runs as effectively as it can.
     <!-- MESSAGE DIV - INFO, SUCCESS, ERROR -->
     <div id="message" class="message hidden"></div>
 
-	<form method="post" id="search_customers">
+    <div class="container">
+        <form method="post" id="search_customers">
 
-        <input type="text" name="search_name" placeholder="Search by name">
-
-        <br>
-
-        <select name="search_age">
-            <option value="">Search by Age Group</option>
-            <option value="18-19">18-19</option>
-            <option value="20-29">20-29</option>
-            <option value="30-39">30-39</option>
-            <option value="40-49">40-49</option>
-            <option value="50-59">50-59</option>
-            <option value="60-69">60-69</option>
-            <option value="70-79">70-79</option>
-            <option value="80-89">80-89</option>
-            <option value="90-99">90-99</option>
-        </select>
-
-        <br>
-
-        <input type="submit" value="Search" />
-    </form>
+            <input class="input" type="text" name="search_name" placeholder="Search by name">
+    
+            <br>
+    
+            <select class="select" name="search_age">
+                <option value="">Search by Age Group</option>
+                <option value="18-19">18-19</option>
+                <option value="20-29">20-29</option>
+                <option value="30-39">30-39</option>
+                <option value="40-49">40-49</option>
+                <option value="50-59">50-59</option>
+                <option value="60-69">60-69</option>
+                <option value="70-79">70-79</option>
+                <option value="80-89">80-89</option>
+                <option value="90-99">90-99</option>
+            </select>
+    
+            <br>
+    
+            <input class="btn-submit" type="submit" value="Search" />
+        </form>    
+    </div>
     
     
     <!-- RESULT DIV - To display the requests response -->
-	<div id="result" class="data-container"></div>
+	<div id="result" class="container"></div>
 
     <script type="module">
     
