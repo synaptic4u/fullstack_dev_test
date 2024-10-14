@@ -62,15 +62,15 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 	if ($result->num_rows > 0) {
 
 		$html = '<br>
-			<table>
+			<table style="border: 1px solid grey;border-radius:5px;">
 				<thead>
 				
-					<tr>
-						<th>Year</th>
-						<th>Month</th>
-						<th>Customer</th>
-						<th>Product List</th>
-						<th>Total Spent</th>
+					<tr style="border-bottom: 2px solid grey;">
+						<th style="text-align:start;">Year</th>
+						<th style="text-align:start;">Month</th>
+						<th style="text-align:start;">Customer</th>
+						<th style="text-align:start;">Product List</th>
+						<th style="text-align:start;">Total Spent</th>
 					</tr>
 				</thead>
 
@@ -79,21 +79,25 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 		while ($row = $result->fetch_assoc()) {
 
 			$html .= '
-					<tr>
+					<tr style="border-bottom: 1px solid grey;">
 				
-						<td>
+						<td style="vertical-align:top;">
 							'. $row['sales_year'] .'
 						</td>
-						<td>
+						<td style="vertical-align:top;">
 							'. $row["sales_month"] .'
 						</td>
-						<td style="white-space:nowrap;">
+						<td style="white-space:nowrap;vertical-align:top;">
 							'. $row["customer"] .'
 						</td>
-						<td>
-							'. $row["products"] .'
-						</td>
-						<td>
+						<td style="vertical-align:top;">';
+			
+			foreach(explode(",", $row["products"]) as $product){
+				$html .= $product.'<br>';
+			}
+
+			$html .= '	</td>
+						<td style="vertical-align:top;">
 							'. $row["sales_total"] .'
 						</td>
 					</tr>';
