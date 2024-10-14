@@ -52,7 +52,7 @@ const Search = {
         
             age--;
         }
-        
+
         return age;
     },
     /**
@@ -91,6 +91,15 @@ const Search = {
 
         return Customer.customerTableTemplate(this.dataArray);
     },
+    /** Method: Search->attach
+     * Attaches the result to the calling router.
+     * @param {FormObject} request 
+     * @returns 
+     */
+    'attach' : function(request){
+
+        return this.search(request);
+    }
 };
 
 export {
