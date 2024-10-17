@@ -139,6 +139,40 @@ textarea {
     font-size: larger;
     font-weight: bold;
 }
+
+/* Styling for product categories and lists */
+.category-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: left; /* Align category titles to the left */
+}
+
+.product-list {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0; /* Remove default padding */
+    margin-bottom: 30px;
+    text-align: left; /* Align list items to the left */
+}
+
+.product-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: 400;
+    color: #555;
+    text-align: left; /* Align text inside list items to the left */
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-item:hover {
+    background-color: #f4f4f4;
+    cursor: pointer;
+}
 @media (min-width: 992px) {
     .container {
         width: 60%;
@@ -166,9 +200,18 @@ textarea {
         margin: 0 auto;
         padding: 10px;
     }
+
     .message {
         width: 95%;
         margin: 0 auto;
+    }
+    
+    .category-title {
+        font-size: 20px;
+    }
+    
+    .product-item {
+        font-size: 14px;
     }
 }
 
@@ -176,10 +219,18 @@ textarea {
     .container {
         width: 100%;
         margin: 0 auto;
-        /* padding: 10px; */
     }
+    
     .message {
         width: 100%;
         margin: 0 auto;
+    }
+    
+    .category-title {
+        font-size: 18px;
+    }
+    
+    .product-item {
+        font-size: 12px;
     }
 }

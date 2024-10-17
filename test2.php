@@ -20,6 +20,63 @@
  
     use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 
+
+    // Prepare the SQL query to get products with categories
+    $query = "
+        SELECT 
+            IFNULL(c.category, 'Uncategorized') AS category, 
+            p.product, 
+            p.price 
+        FROM 
+            products p
+        LEFT JOIN 
+            categories c ON p.category_id = c.id
+        ORDER BY 
+            category ASC, 
+            p.product ASC
+    ";
+
+    $db = new DBMYSQLI();
+
+    $result = $db->query($query);
+
+    $html = '';
+    $message = '';
+
+// Check if there are any rows
+if ($result->num_rows > 0) {
+
+    $currentCategory = '';
+
+    while ($row = $result->fetch_assoc()) {
+
+        // Check if we're in a new category
+        if ($row['category'] !== $currentCategory) {
+
+            // Close the previous list if necessary and open a new one
+            if (!empty($currentCategory)) {
+
+                $html .= '</ul>';
+            }
+
+            // Print category header
+            $html .= '<h2 class="category-title">' . htmlspecialchars($row['category']) . '</h2>';
+
+            $html .= '<ul class="product-list">';
+
+            $currentCategory = $row['category'];
+        }
+
+        // Print product name and price
+        $html .= '<li class="product-item">' . htmlspecialchars($row['product']) . ' - $' . number_format($row['price'], 2) . '</li>';
+    }
+
+    $html .= '</ul>'; // Close the last list
+} else {
+
+    $message .= '<h3>There are no results available.</h3>';
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,65 +97,13 @@
     <h1>Products</h1>
  
     <!-- MESSAGE DIV - INFO, SUCCESS, ERROR -->
-    <div id="message" class="message hidden"></div>
+    <div id="message" class="message <?php echo((strlen($message) == 0) ? 'hidden' : '') ?>">
+        <?php echo $message; ?>
+    </div>
 
-    <div class="container"></div>
-<?php
-
-    // Prepare the SQL query to get products with categories
-    $query = "
-        SELECT 
-            IFNULL(c.category, 'Uncategorized') AS category, 
-            p.product, 
-            p.price 
-        FROM 
-            products p
-        LEFT JOIN 
-            categories c ON p.category_id = c.id
-        ORDER BY 
-            category ASC, 
-            p.product ASC
-    ";
-
-    $db = new DBMYSQLI();
-
-    $result = $db->query($query);
-    
-    // Check if there are any rows
-    if ($result->num_rows > 0) {
-    
-        $currentCategory = '';
-    
-        while ($row = $result->fetch_assoc()) {
-    
-            // Check if we're in a new category
-            if ($row['category'] !== $currentCategory) {
-    
-                // Close the previous list if necessary and open a new one
-                if (!empty($currentCategory)) {
-    
-                    echo "</ul>";
-                }
-    
-                // Print category header
-                echo "<h2>" . htmlspecialchars($row['category']) . "</h2>";
-    
-                echo "<ul>";
-    
-                $currentCategory = $row['category'];
-            }
-
-            // Print product name and price
-            echo "<li>" . htmlspecialchars($row['product']) . " - $" . number_format($row['price'], 2) . "</li>";
-        }
-
-        echo "</ul>"; // Close the last list
-    } else {
-
-        echo "<h3>There are no results available.</h3>";
-    }
-
-?>
-
+    <!-- RESULT DIV - To display the requests response -->
+	<div id="result" class="container <?php echo((strlen($html) == 0)? 'hidden' : '') ?>">
+        <?php echo $html; ?>
+    </div>
 </body>
 </html>
