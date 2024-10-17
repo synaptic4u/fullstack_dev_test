@@ -1,3 +1,6 @@
+
+
+/* General Styles */
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 *{
   margin: 0;
@@ -10,28 +13,7 @@
 html{
     text-align: center;
 }
-.hidden {
-    display: none;
-}
 
-.visible {
-    display: block;
-}
-.message{
-
-    font-weight: bold;
-    margin: 1rem 1rem 1rem 1rem;
-}
-.error{
-    color: red;
-}
-.info{
-    color: blue;
-}
-.success{
-    color: green;
-}
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -46,6 +28,15 @@ h1 {
     margin-bottom: 30px;
 }
 
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
 /* Container Styles */
 .container {
     max-width: 600px;
@@ -57,6 +48,26 @@ h1 {
 }
 
 textarea {
+    width: 100%;
+    margin-top:10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.text {
+    width: 100%;
+    margin-top:10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.select {
     width: 100%;
     margin-top:10px;
     padding: 10px;
@@ -100,6 +111,12 @@ textarea {
 .message.error {
     background-color: #f8d7da;
     color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.message.info {
+    background-color: #f8d7da;
+    color: blue;
     border: 1px solid #f5c6cb;
 }
 

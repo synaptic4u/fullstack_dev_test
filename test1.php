@@ -39,13 +39,11 @@
         <form method="post" id="list_parser">
             <input type="hidden" name="action" value="sort" />
 
-            <label for="to_sort" class="text">Please enter the words/phrases to be sorted separated by commas:</label><br/>
+            <label for="to_sort" class="">Please enter the words/phrases to be sorted separated by commas:</label><br/>
             
-            <textarea class="textarea" name="to_sort" style="width: 100%; height: 150px;"></textarea>
+            <textarea class="" name="to_sort" style="width: 100%; height: 150px;"></textarea>
 
-            <div class="div-submit">
-                <input class="btn-submit" type="submit" value="Sort" />
-            </div>
+            <input class="btn-submit" type="submit" value="Sort" />
         </form>
     </div>
 
