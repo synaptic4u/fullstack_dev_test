@@ -85,7 +85,7 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 							$'. number_format($row["sales_total"], 2) .'
 						</td>';
 			
-			$html .= '<td style="vertical-align:top;">';
+			$html .= '<td style="vertical-align:top;white-space:nowrap;">';
 
 			foreach(explode(",", $row["products"]) as $product){
 			
