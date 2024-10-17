@@ -53,7 +53,7 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 	if ($result->num_rows > 0) {
 
 		$html .= '
-			<table class="table-customer" style="width: 800px;">
+			<table class="table-customer">
 				<thead>
 				
 					<tr style="border-bottom: 2px solid grey;">
@@ -128,7 +128,7 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 	</div>
 
 	<!-- RESULT DIV - To display the requests response -->
-	<div id="result" class="container <?php echo((strlen($html) == 0)? 'hidden' : '') ?>"  style="overflow-x:auto; width:100%;">
+	<div id="result" class="container-large <?php echo((strlen($html) == 0)? 'hidden' : '') ?>">
 		<?php echo $html; ?>
 	</div>
 
