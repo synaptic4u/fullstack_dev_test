@@ -13,7 +13,8 @@ const FormParser = {
      */
     'parse': function (form){
 
-        console.log(form.elements.length);
+        this.response.error = 0;
+
         this.checkError(form.elements.length < 1);
 
         if(this.response.error === 0){
@@ -55,6 +56,7 @@ const FormParser = {
      */
     'checkError': function(check){
 
+        // For no errors "check" must be false
         if(check == true){
                         
             this.response.error = 1;
