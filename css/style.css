@@ -47,7 +47,7 @@ h1 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 .container-large {
-    max-width: 800px;
+    max-width: 90%;
     overflow-x:auto;
     margin: 0 auto;
     margin-top:10px;
@@ -143,7 +143,7 @@ textarea {
 
 /* Table Styles */
 .table-customer{
-    width:100%;
+    width:800px;
     text-align: start;
 }
 
@@ -195,6 +195,9 @@ th, td {
     .container {
         width: 60%;
     }
+    .container-large {
+        width: 90%;
+    }
     .message {
         width: 60%;
     }
@@ -203,6 +206,11 @@ th, td {
 @media (max-width: 991px) {
     .container {
         width: 90%;
+        margin: 0 auto;
+        padding: 15px;
+    }
+    .container-large {
+        width: 100%;
         margin: 0 auto;
         padding: 15px;
     }
@@ -218,7 +226,11 @@ th, td {
         margin: 0 auto;
         padding: 10px;
     }
-
+    .container-large {
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+    }
     .message {
         width: 95%;
         margin: 0 auto;
@@ -235,6 +247,10 @@ th, td {
 
 @media (max-width: 576px) {
     .container {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .container-large {
         width: 100%;
         margin: 0 auto;
     }

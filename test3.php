@@ -56,7 +56,7 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 			<table class="table-customer">
 				<thead>
 				
-					<tr style="border-bottom: 2px solid grey;">
+					<tr>
 						<th class="table-heading" style="text-align:start;">Year</th>
 						<th class="table-heading" style="text-align:start;">Month</th>
 						<th class="table-heading" style="text-align:start;">Customer</th>
@@ -70,7 +70,7 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 		while ($row = $result->fetch_assoc()) {
 
 			$html .= '
-					<tr style="border-bottom: 1px solid grey;">
+					<tr>
 				
 						<td style="vertical-align:top;">
 							'. $row['sales_year'] .'
