@@ -19,7 +19,7 @@ body {
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
-    padding: 20px;
+    padding: 5px;
 }
 
 h1 {
@@ -139,23 +139,47 @@ textarea {
     font-size: larger;
     font-weight: bold;
 }
-
-@media (min-width:992px) {
-    
-    .container{
+@media (min-width: 992px) {
+    .container {
         width: 60%;
     }
-    .message{
+    .message {
         width: 60%;
     }
 }
 
-@media (max-width:992px) {
-
-    .container{
-        width: 100%;
+@media (max-width: 991px) {
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        padding: 15px;
     }
-    .message{
+    .message {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        margin: 0 auto;
+        padding: 10px;
+    }
+    .message {
+        width: 95%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
         width: 100%;
+        margin: 0 auto;
+        /* padding: 10px; */
+    }
+    .message {
+        width: 100%;
+        margin: 0 auto;
     }
 }
