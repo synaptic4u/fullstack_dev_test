@@ -14,8 +14,6 @@
  *
  * See test3.html for desired result.
  */
-?>
-<?php
 
 if (file_exists(dirname(__FILE__, 1).'/vendor/autoload.php')) {
         
@@ -24,26 +22,6 @@ if (file_exists(dirname(__FILE__, 1).'/vendor/autoload.php')) {
 
 use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 
-?>
-<!DOCTYPE html>
-<html>
-<head>
-
-	<!-- META -->
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-	<!-- TITLE -->
-	<title>Test3</title>
-
-	<!-- STYLESHEET -->
-	<link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-<h1>Top Customers per Month</h1>
-
-<?php
 
 	// Prepare the SQL query to get products with categories
 	$query = '	
@@ -68,19 +46,22 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 	$result = $db->query($query);
 	// var_dump(json_encode($result));
 
+    $html = '';
+    $message = '';
+
 	// Check if there are any rows
 	if ($result->num_rows > 0) {
 
-		$html = '<br>
-			<table style="border: 1px solid grey;border-radius:5px;">
+		$html .= '
+			<table class="table-customer">
 				<thead>
 				
 					<tr style="border-bottom: 2px solid grey;">
-						<th style="text-align:start;">Year</th>
-						<th style="text-align:start;">Month</th>
-						<th style="text-align:start;">Customer</th>
-						<th style="text-align:start;">Product List</th>
-						<th style="text-align:start;">Total Spent</th>
+						<th class="table-heading" style="text-align:start;">Year</th>
+						<th class="table-heading" style="text-align:start;">Month</th>
+						<th class="table-heading" style="text-align:start;">Customer</th>
+						<th class="table-heading" style="text-align:start;">Product List</th>
+						<th class="table-heading" style="text-align:start;white-space:nowrap;">Total Spent</th>
 					</tr>
 				</thead>
 
@@ -108,7 +89,7 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 
 			$html .= '	</td>
 						<td style="vertical-align:top;">
-							'. $row["sales_total"] .'
+							$'. number_format($row["sales_total"], 2) .'
 						</td>
 					</tr>';
 		}
@@ -116,13 +97,39 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 		$html .= '
 				</tbody>
 			</table>';
-
-		echo($html);
 	} else {
 
-		echo "<h3>There are no results available.</h3>";
+		$message .= "<h3>There are no results available.</h3>";
 	}
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+
+	<!-- META -->
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- TITLE -->
+	<title>Test3</title>
+
+	<!-- STYLESHEET -->
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+	<h1>Top Customers per Month</h1>
+	
+	<!-- MESSAGE DIV - INFO, SUCCESS, ERROR -->
+	<div id="message" class="message <?php echo((strlen($message) == 0) ? 'hidden' : '') ?>">
+		<?php echo $message; ?>
+	</div>
+
+	<!-- RESULT DIV - To display the requests response -->
+	<div id="result" class="container <?php echo((strlen($html) == 0)? 'hidden' : '') ?>"  style="overflow-x:auto; width:100%;">
+		<?php echo $html; ?>
+	</div>
+
 
 </body>
 </html>
