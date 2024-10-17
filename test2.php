@@ -24,11 +24,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Test2</title>
+
+    <!-- META -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- TITLE -->
+    <title>Test2</title> 
+
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<h1>Products</h1>
+    <h1>Products</h1>
+ 
+    <!-- MESSAGE DIV - INFO, SUCCESS, ERROR -->
+    <div id="message" class="message hidden"></div>
 
+    <div class="container"></div>
 <?php
 
     // Prepare the SQL query to get products with categories
