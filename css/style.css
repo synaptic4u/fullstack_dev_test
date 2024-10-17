@@ -57,6 +57,7 @@ h1 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Form Styles */
 textarea {
     width: 100%;
     margin-top:10px;
@@ -129,7 +130,7 @@ textarea {
     display: none;
 }
 
-/* Result Section */
+/* Result Styles */
 #result {
     margin-top: 20px;
     font-size: 16px;
@@ -140,6 +141,7 @@ textarea {
     border: 1px solid #ccc;
 }
 
+/* Table Styles */
 .table-customer{
     width:100%;
     text-align: start;
@@ -148,6 +150,12 @@ textarea {
 .table-heading{
     font-size: larger;
     font-weight: bold;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
 /* Styling for product categories and lists */
