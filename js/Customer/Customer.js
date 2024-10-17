@@ -15,11 +15,11 @@ const Customer = {
     'customerTableTemplate': function(customers){
 
         this.response.result = `
-            <table>
+            <table class="table-customer">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Age</th>
+                        <td class="table-heading">Name</td>
+                        <td class="table-heading">Age</td>
                     </tr>
                 </thead>
                 <tbody>`;    
