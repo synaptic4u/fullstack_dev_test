@@ -13,9 +13,6 @@
  * apples, cars, tables and chairs, tea and coffee, zebras
  */
 ?>
-<?php
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,14 +43,15 @@
             
             <textarea class="textarea" name="to_sort" style="width: 100%; height: 150px;"></textarea>
 
-            <input class="btn-submit" type="submit" value="Sort" />
+            <div class="div-submit">
+                <input class="btn-submit" type="submit" value="Sort" />
+            </div>
         </form>
     </div>
 
     <!-- RESULT DIV - To display the requests response -->
 	<div id="result" class="container"></div>
 </body>
-
 
 <!-- MAIN JAVASCRIPT -->
 <script type="module" >

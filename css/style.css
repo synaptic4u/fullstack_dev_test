@@ -33,23 +33,46 @@ html{
 }
 .container{
     text-align: start;
-    border:1px solid black;
-    width: 90%;
+    border: 1px solid black;
+    width: 40%;
     margin: auto;
     padding: 10px;
 }
 .input{
     margin-top:10px;
+    width: 90%;
+    margin: auto;
 }
 .textarea{
     margin-top:10px;
-    width: 90%;
-
+    width: 90vw;
+    margin: auto;
 }
 .select{
-    margin-top:10px
-}
-.btn-submit{
     margin-top:10px;
     width: 90%;
+    margin: auto;
+}
+.div-submit{
+    margin-top:10px;
+    text-align:center;
+}
+.btn-submit{
+    margin: auto;
+    width: 90%;
+}
+
+
+@media (min-width:992px) {
+    
+    .container{
+        width: 60%;
+    }
+}
+
+@media (max-width:992px) {
+
+    .container{
+        width: 100%;
+    }
 }
