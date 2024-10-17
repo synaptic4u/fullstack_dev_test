@@ -50,7 +50,7 @@
     </div>
 
     <!-- RESULT DIV - To display the requests response -->
-	<div id="result" class="container"></div>
+	<div id="result" class="container hidden"></div>
 </body>
 
 <!-- MAIN JAVASCRIPT -->

@@ -63,8 +63,21 @@ const Response = {
      * Uses HTML div tag with result ID.
      */
     'initResult': function (){
-        document.getElementById('result').innerHTML = this.result;
+        let resultDiv = document.getElementById('result');
 
+        resultDiv.classList.remove('visible');
+        resultDiv.classList.add('hidden');
+
+        resultDiv.innerHTML = "";
+
+        if (this.result != null) {
+          
+            resultDiv.classList.remove('hidden');
+            resultDiv.classList.add('visible');
+
+            resultDiv.innerHTML = this.result;
+        } 
+        
         this.result = null;
     },
 };
