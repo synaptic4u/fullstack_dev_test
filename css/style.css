@@ -28,7 +28,6 @@ h1 {
     margin-bottom: 10px;
 }
 
-
 .hidden {
     display: none;
 }
@@ -137,7 +136,8 @@ textarea {
 }
 
 .table-heading{
-
+    font-size: larger;
+    font-weight: bold;
 }
 
 @media (min-width:992px) {
