@@ -53,15 +53,15 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 	if ($result->num_rows > 0) {
 
 		$html .= '
-			<table class="table-customer">
+			<table class="table-customer" style="width: 800px;">
 				<thead>
 				
 					<tr style="border-bottom: 2px solid grey;">
 						<th class="table-heading" style="text-align:start;">Year</th>
 						<th class="table-heading" style="text-align:start;">Month</th>
 						<th class="table-heading" style="text-align:start;">Customer</th>
-						<th class="table-heading" style="text-align:start;">Product List</th>
 						<th class="table-heading" style="text-align:start;white-space:nowrap;">Total Spent</th>
+						<th class="table-heading" style="text-align:start;">Product List</th>
 					</tr>
 				</thead>
 
@@ -80,17 +80,19 @@ use Synaptic4u\Emile\DBMYSQLI\DBMYSQLI;
 						</td>
 						<td style="white-space:nowrap;vertical-align:top;">
 							'. $row["customer"] .'
-						</td>
-						<td style="vertical-align:top;">';
+						</td>			
+						<td style="vertical-align:top;text-align:start;">
+							$'. number_format($row["sales_total"], 2) .'
+						</td>';
 			
+			$html .= '<td style="vertical-align:top;">';
+
 			foreach(explode(",", $row["products"]) as $product){
+			
 				$html .= $product.'<br>';
 			}
 
 			$html .= '	</td>
-						<td style="vertical-align:top;">
-							$'. number_format($row["sales_total"], 2) .'
-						</td>
 					</tr>';
 		}
 
