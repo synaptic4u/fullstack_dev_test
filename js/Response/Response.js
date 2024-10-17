@@ -70,7 +70,7 @@ const Response = {
 
         resultDiv.innerHTML = "";
 
-        if (this.result != null) {
+        if (this.result != null && this.error === 0) {
           
             resultDiv.classList.remove('hidden');
             resultDiv.classList.add('visible');

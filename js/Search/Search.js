@@ -60,6 +60,9 @@ const Search = {
      */
     'addAgeToCustomers': function(){
 
+        // Toggle to see that if customers array is not found then return error.
+        // let customers = []; 
+        
         this.dataArray = customers.map(customer => ({
             ...customer,
             age: this.calcAge(customer.birthdate)
@@ -76,6 +79,12 @@ const Search = {
 
         this.addAgeToCustomers();
 
+        this.checkError(this.dataArray.length === 0);
+
+        if(this.response.error === 1){
+            return this.response;
+        }
+
         let search_age = this.response.result.search_age;
         let search_name = this.response.result.search_name;
         
@@ -90,6 +99,20 @@ const Search = {
         }
 
         return Customer.customerTableTemplate(this.dataArray);
+    },
+    /**
+     * Sets the Response objects default error response for form parsing failure.
+     * @param {Boolean} check 
+     */
+    'checkError': function(check){
+
+        // For no errors "check" must be false
+        if(check == true){
+                        
+            this.response.error = 1;
+
+            this.response.message = '<span class="error">Unable to load the customers data.<br>Please constact support.</span>';
+        }
     },
     /** Method: Search->attach
      * Attaches the result to the calling router.
