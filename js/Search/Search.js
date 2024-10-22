@@ -5,12 +5,12 @@ import { Customer } from "../Customer/Customer.js";
 
 /**
  * Object Search provides functionality to search the customers array with a name or age group query.
- * Rebuilds the Customers array by calculating the age and adding it to each object in the array.
  */
 const Search = {
     'response': Response,
     'dataArray': [],
-    /**
+    /** * Rebuilds the Customers array by calculating the age and adding it to each object in the array.
+
      * Filters the local data array for a object by name.
      * @param {String} query 
      */

@@ -16,14 +16,14 @@ const Customer = {
 
         this.response.result = `
             <div class="overflow-x:auto;">
-            <table class="table-customer">
-                <thead>
-                    <tr>
-                        <td class="table-heading">Name</td>
-                        <td class="table-heading">Age</td>
-                    </tr>
-                </thead>
-                <tbody>`;    
+                <table class="table-customer">
+                    <thead>
+                        <tr>
+                            <td class="table-heading">Name</td>
+                            <td class="table-heading">Age</td>
+                        </tr>
+                    </thead>
+                    <tbody>`;    
 
         for (const customer of customers) {
             
