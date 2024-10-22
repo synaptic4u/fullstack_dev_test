@@ -15,6 +15,7 @@ const Customer = {
     'customerTableTemplate': function(customers){
 
         this.response.result = `
+            <div class="overflow-x:auto;">
             <table class="table-customer">
                 <thead>
                     <tr>
@@ -29,7 +30,7 @@ const Customer = {
             this.response.result += `<tr><td>` + customer.name + `</td><td>` + customer.age + `</td></tr>`;
         };
         
-        this.response.result += `</tbody></table>`;
+        this.response.result += `</tbody></table></div>`;
 
         return this.response;
     }
