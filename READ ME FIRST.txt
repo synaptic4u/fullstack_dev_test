@@ -14,7 +14,7 @@ INSTRCUCTIONS:
 Create a database and import devtest.sql
 Configure the db details in db.php
 
-Do test1.php using php to achieve the results.
+Do test1.php using only vanilla javascript to achieve the results.
 Do test2.php using php and mysql to achieve the results.
 Do test3.php using php and mysql to achieve the results.
 Do test4.html using only vanila javascript or jquery - no plugins!
