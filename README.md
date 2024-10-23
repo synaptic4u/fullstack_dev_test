@@ -12,5 +12,10 @@ Plan to follow something similar for php.
 A big consideration to look at for performance, is to include scalability in performance. 
 A single page function will always outperform a 12 page app. But to refactor multiple Godlike functions...
 
-Sep 27:
+NOTA BENA!!
+This is a failed test I finished and played around with. At the time I ran out of food when my money ran out and I spent the previous weeks barely eating and a couple weeks in August/September without any food.
+So my ability to concentrate and think logically was greatly impaired because of malnutrition and hunger.
+Once Im on a steady diet after a few weeks I really come alive and this level of programming is cinch to me. 
+
+ALso I kept the PHP procedural style because of speed, but Im going to play around with it and do it all with both PHP & JS
 
